@@ -15,9 +15,8 @@
     <table id="9" parent="2" name="user"/>
     <column id="10" parent="9" name="school_id">
       <Position>1</Position>
-      <DataType>int(10) unsigned|0</DataType>
+      <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="11" parent="9" name="username">
       <Position>2</Position>
