@@ -2,29 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>合肥工业大学宣城校区图书馆</title>
+    <title>合肥工业大学图书馆</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--为了使导航条一直在顶部，而且不对下面的内容产生影响 导航条默认宽度是50-->
     <style>
-        body{
+        body {
             padding-top: 70px;
         }
     </style>
 </head>
 
 
-
-
 <body>
 <header>
-       <div >
-           <!--这里做一个导航条-->
-           <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+    <div>
+        <!--这里做一个导航条-->
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
             <div class="container"> <!--container-fluied-->
                 <div class="navbar-header">
                     <!--这里这个button的作用是网页缩小的时候，导航条可以缩成 三-->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -32,15 +31,16 @@
                     </button>
                     <!--结束-->
                     <!--导航条前面的部分，可以改成logo什么的-->
-                    <a class="navbar-brand">合肥工业大学宣城校区图书馆</a>
+                    <a class="navbar-brand"><large>Beta1.0</large></a>
 
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <!--导航内容-->
                         <li class="active"><a href="http://www.hfut.edu.cn/ch/">工大主页</a></li>
-                        <li ><a href="#">Link</a></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span
+                                class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Windows</a></li>
                                 <li><a href="#">Linux</a></li>
@@ -51,27 +51,193 @@
 
                             </ul>
                         </li>
-                        <li ><a href="#">关于</a></li>
+
+                        <!--登录-->
+                        <li class="right"><a href="#" class="pull-right">登录</a></li>
+                        <li>|<li>
+                        <li class="right"><a href="./register.html" class="pull-right">注册</a></li>
+
+                        <li> <a  href="#" >
+                            关于
+                            </a>
+
+                        </li>
+
+
+
+
+
+
+
+
                     </ul>
                 </div>
             </div>
-           </nav>
+        </nav>
+    </div>
 
-        <!-- 图片背景-->
-        <div class="banner ">
-            <!--<img src="images/logo.jpg" alt="">-->
-            <!--<div class="time ">-->
-                <!--开馆时间:-->
-                <!--<br> 周一至周日: 8:00-22:00-->
-                <!--<br>-->
-            <!--</div>-->
+    <!-- 图片背景-->
+    <div class="container ">
+        <div class="row clearfix">
+            <div>
+                <img src="images/logo.png">
+                <span >开馆时间:
+                     <br>周一至周日: 8:00-22:00
+                </span>
+            </div>
         </div>
     </div>
+
+    <!--搜索框部分-->
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            <li><a href="#" role="tab" data-toggle="tab">教材教辅</a></li>
+            <li><a href="#" role="tab" data-toggle="tab">热门书籍</a></li>
+            <li><a href="#" role="tab" data-toggle="tab">语言文学</a></li>
+            <li><a href="#" role="tab" data-toggle="tab">哲学理论</a></li>
+            <li><a href="#" role="tab" data-toggle="tab">计算机</a></li>
+        </ul>
+        <form class="form-search">
+            <input class="input-lg search-query" type="text" /> <button type="submit" class="btn">查找</button>
+        </form>
+    </div>
 </header>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        产品
+                    </th>
+                    <th>
+                        交付时间
+                    </th>
+                    <th>
+                        状态
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        TB - Monthly
+                    </td>
+                    <td>
+                        01/04/2012
+                    </td>
+                    <td>
+                        Default
+                    </td>
+                </tr>
+                <tr class="success">
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        TB - Monthly
+                    </td>
+                    <td>
+                        01/04/2012
+                    </td>
+                    <td>
+                        Approved
+                    </td>
+                </tr>
+                <tr class="error">
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        TB - Monthly
+                    </td>
+                    <td>
+                        02/04/2012
+                    </td>
+                    <td>
+                        Declined
+                    </td>
+                </tr>
+                <tr class="warning">
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        TB - Monthly
+                    </td>
+                    <td>
+                        03/04/2012
+                    </td>
+                    <td>
+                        Pending
+                    </td>
+                </tr>
+                <tr class="info">
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        TB - Monthly
+                    </td>
+                    <td>
+                        04/04/2012
+                    </td>
+                    <td>
+                        Call in to confirm
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <h2>
+                Heading
+            </h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <p>
+                <a class="btn" href="#">View details »</a>
+            </p>
+        </div>
+        <div class="col-md-4 column">
+            <h2>
+                Heading
+            </h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <p>
+                <a class="btn" href="#">View details »</a>
+            </p>
+        </div>
+        <div class="col-md-4 column">
+            <h2>
+                Heading
+            </h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <p>
+                <a class="btn" href="#">View details »</a>
+            </p>
+        </div>
+    </div>
+</div>
 
 
-<footer>
-    <div >
+
+<footer class="bottom">
+    <div>
         @lzl
         <span>shijian</span>
     </div>

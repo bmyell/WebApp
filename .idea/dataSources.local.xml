@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="phpmyadmin@localhost" uuid="72e60fc6-c5a7-4877-9e65-d743776e14f2">
-      <database-info product="MySQL" version="5.7.19-0ubuntu0.16.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+    <data-source name="webapp@localhost" uuid="dd1122f5-e2e7-4dc1-9e96-72cd1a07a9c8">
+      <database-info product="MySQL" version="5.7.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>phpmyadmin</user-name>
-      <introspection-schemas>*:phpmyadmin</introspection-schemas>
+      <user-name>root</user-name>
+      <introspection-schemas>*:webapp</introspection-schemas>
     </data-source>
   </component>
 </project>

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Apche2
 sudo apt-get install apache2
 #php
