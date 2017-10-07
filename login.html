@@ -1,51 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>欢迎登录</title>
-
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="assets/styles.css" rel="stylesheet" media="screen">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script rel="script" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+    <script rel="script" src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .col-center-block {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
-<body id="login">
+
+<body>
 <div class="container">
-    <form class="form-signin" method="post" action="server/login.php">
-        <h2 class="form-signin-heading">请登录</h2>
-        <input type="text" class="input-block-level" placeholder="学号">
-        <input type="password" class="input-block-level" placeholder="密码">
-        <!--<label class="checkbox">-->
-            <!--<input type="checkbox" value="remember-me"> 记住我-->
-        <!--</label>-->
-        <div style="display: inline">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1"
-                           value="option1" checked> 教师
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2"
-                           value="option2">学生
-                </label>
-            </div>
+    <div class="row myCenter">
+        <div class="col-xs-6 col-md-4 col-center-block">
+            <form class="form-signin" method="post" action="server/login.php">
+                <h2 class="form-signin-heading">请登录</h2>
+                <label for="username" class="sr-only">用户名</label>
+                <input type="text" id="username" class="form-control" placeholder="用户名" required autofocus>
+                <label for="inputPassword" class="sr-only">密码</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1"
+                               value="option1" checked> 教师
+                    </label>
+                     <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2"
+                               value="option2">学生
+                    </label>
+                </div>
+
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me">
+                        记住我 </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+            </form>
         </div>
-
-        <button class="btn btn-large btn-primary" type="submit">登录</button>
-    </form>
+    </div>
 </div>
-
-
-<!--放脚本的地方-->
-<script rel="script" src="bootstrap/js/jquery-3.2.1.min.js"></script>
-<script rel="script" src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

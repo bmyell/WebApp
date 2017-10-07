@@ -2,17 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>欢迎注册</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script rel="script" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+    <script rel="script" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form method="post" action="server/register.php">
-        学号:    <input type="text" name="schoolid">
-        用户名:  <input type="text" name="username"/>
-        邮箱:    <input type="text" name="email"/>
-        密码:     <input type="password" name="password"/>
-        确认密码: <input type="password" />
-        <input type="submit" value="提交注册"/>
-        <input type="reset" value="重新提交" />
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-group">
+                    <label for="schoolid">学号</label>
+                    <input  type="text"  id="schoolid" name="schoolid" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="text" id="email" name="email" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="grade">年级</label>
+                    <input type="number" id="grade" name="grade" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">再次输入</label>
+                    <input type="password"/>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
 </body>
 </html>
