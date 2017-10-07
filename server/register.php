@@ -51,12 +51,12 @@ if(! $retval )
 {
     die('无法插入数据: ' . mysqli_error($conn));
     mysqli_close($conn);
-    header("Location：../index.html");
+    require 'index.html';
 }
 else{
     echo "数据插入成功\n";
     mysqli_close($conn);
-    header("Location：../index.html");
+    require '../index.html';
 }
 
 
