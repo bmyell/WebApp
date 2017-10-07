@@ -1,49 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>合肥工业大学图书馆</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>合肥工业大学图书馆管理后台</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="bootstrap/css/base.css" rel="stylesheet"/>
 </head>
 <body style="min-height:800px; height: auto">
 <div class="container-fluid">
-
+    <!--头部-->
     <nav class="navbar navbar-default row no-yj  navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-list-left" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#nav-list-left" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">OA自动办公</a>
+                <a class="navbar-brand" href="#">欢迎使用！</a>
             </div>
 
             <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-bell"><i class="label label-warning label-nav">66</i></i></a>
+                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i
+                            class="glyphicon glyphicon-bell"><i class="label label-warning label-nav">66</i></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="#">哈哈哈</a></li>
                         </ul>
                     </li>
-                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-envelope"><i class="label label-success label-nav">6</i></i></a>
+                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i
+                            class="glyphicon glyphicon-envelope"><i class="label label-success label-nav">6</i></i></a>
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="#">哈哈哈</a></li>
                         </ul>
                     </li>
                     <li><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="height: 50px">
-                        <img class="img-circle pull-left img-responsive nav-user-img" src="img/user/user.jpg" /><span class="pull-left nav-username">管理员</span></a>
+                        <img class="img-circle pull-left img-responsive nav-user-img"
+                             src="bootstrap/img/logo.jpg"/><span class="pull-left nav-username">管理员</span></a>
 
                         <ul class="dropdown-menu dropdown-menu-right clearfix" style="padding-top: 0px">
                             <li class="user-li-head"><span>
-                                    <img class="img-circle nav-user-img-xiala center-block" src="img/user/user.jpg" /></span>
+                                    <img class="img-circle nav-user-img-xiala center-block"
+                                         src="bootstrap/img/logo.jpg"/></span>
                                 <p></p>
                                 <p class="text-center"><span>网络部 - 网络工程师</span></p>
-                                <p class="text-center"><span>远一博</span> </p>
-                                <p class="text-center"><small><span>2015-04-23加入</span></small></p>
+                                <p class="text-center"><span>远一博</span></p>
+                                <p class="text-center">
+                                    <small><span>2015-04-23加入</span></small>
+                                </p>
                             </li>
                             <li style="padding: 10px 20px; padding-bottom: 20px">
 
@@ -57,437 +64,330 @@
                         </ul>
                     </li>
                 </ul>
-
-
             </div>
-
-
-
         </div>
     </nav>
-
-
+    <!--主题部分-->
     <div class="row" style="margin-top:70px">
         <div class="  nav-left col-md-2 no-padding" id="nav-list-left">
             <div class="user-panel">
-                <img src="img/user/user.jpg" class="img-circle center-block" />
+                <img src="bootstrap/img/logo.jpg" class="img-circle center-block"/>
             </div>
-
-            <div class="nav-list" >
+            <!--这个是侧边栏-->
+            <div class="nav-list">
                 <ul>
-                    <li>
-                        <a href="#">首页</a>
-
-                    </li>
-
-
+                    <li><a href="#">首页</a></li>
                     <li class="nav-left-dropdown">
-                        <a href="#">我是下拉</a>
+                        <a href="#">图书信息管理 <span class="caret"></span></a>
                         <ul class="nav-left-dropdown-menu">
-                            <li><a href="#">哈哈哈哈哈哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
+                            <li><a href="#bookinfo">增加</a></li>
+                            <li><a href="#bookinfo">删除</a></li>
+                            <li><a href="#bookinfo">查询</a></li>
+                            <li><a href="#bookinfo">修改</a></li>
                         </ul>
-                    </li>
+                    </li> <!--书籍管理-->
                     <li class="nav-left-dropdown">
-                        <a href="#">我也是下拉</a>
+                        <a href="#">读者信息管理<span class="caret"></span></a>
                         <ul class="nav-left-dropdown-menu">
-                            <li><a href="#">哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
-                            <li><a href="#">哈哈</a></li>
+                            <li><a href="#studentinfo1">读者借阅查询</a></li>
+                            <li><a href="#studentinfo2">读者录入注销</a></li>
                         </ul>
-                    </li>
+                    </li> <!--学生管理-->
+                    <li class="nav-left-dropdown">
+                        <a href="#">借阅与归还<span class="caret"></span></a>
+                        <ul class="nav-left-dropdown-menu">
+                            <li><a href="#book_borrow">借阅登记</a></li>
+                            <li><a href="#book_">归还登记</a></li>
+                        </ul>
+                    </li> <!--借阅与归还-->
                     <li>
-                        <a href="#">控制台</a>
-                    </li>
-                    <li>
-                        <a href="#">控制台</a>
+                        <a href="#">退出</a>
                     </li>
                 </ul>
             </div>
         </div>
-
+        <!--右边的内容-->
         <div class="main-right  col-md-10 col-md-offset-2">
-
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">导航条</div>
-                    <div class="panel-body">
-                        <ol class="breadcrumb">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Library</a></li>
-                            <li class="active">Data</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">分页</div>
-                    <div class="panel-body">
-                        <nav>
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        输入框
-                    </div>
-                    <div class="panel-body">
-
-                        <div class="col-md-6">
-
-                            <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">Go!</button>
-                                    </span>
-                                <input type="text" class="form-control" placeholder="Search for..." />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for..." />
-                                <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">Go!</button>
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <br />
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">@</span>
-                                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
-                            </div>
-                            <br />
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2" />
-                                <span class="input-group-addon" id="basic-addon2">@example.com</span>
-                            </div>
-                            <br />
-                            <div class="input-group">
-                                <span class="input-group-addon">$</span>
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                            <br />
-                            <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
+            <!--这里开始是图书信息-->
+            <div>
+                <div id="bookinfo" class="col-md-3">
+                    <div class="panel panel-default panel-info">
+                        <div class="panel-heading">新增书籍</div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="bookid">图书ISBN</label>
+                                    <input type="text" class="form-control" id="bookid" placeholder="图书ISBN">
                                 </div>
-                                <input type="text" class="form-control" aria-label="..." />
-                            </div>
-                            <br />
-                            <div class="input-group">
-                                <input type="text" class="form-control" aria-label="..." />
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
+                                <div class="form-group">
+                                    <label for="bookname">图书名称</label>
+                                    <input type="text" class="form-control" id="bookname" placeholder="图书名称">
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label for="booktype">图书分类</label>
+                                    <select class="form-control dropdown" id="booktype" placeholder="请选择图书类别">
+                                        <option>教材教辅</option>
+                                        <option>热门书籍</option>
+                                        <option>语言文学</option>
+                                        <option>哲学理论</option>
+                                        <option>计算机</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookauthor">图书作者</label>
+                                    <input type="text" class="form-control" id="bookauthor" placeholder="请输入图书作者">
+                                </div>
+                                <button class="btn btn-primary" id="btnsubmit">提交添加</button>
+                            </form>
                         </div>
-
-
-
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">删除书籍</div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="bookid">图书ISBN</label>
+                                    <input type="text" class="form-control" id=deleteid" placeholder="输入要删除的ISBN号">
+                                </div>
+                                <button class="btn btn-primary" id="btnsubmitde">提交删除</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">查找书籍</div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="bookid">图书ISBN</label>
+                                    <input type="text" class="form-control" id="bookid" placeholder="图书ISBN">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookname">图书名称</label>
+                                    <input type="text" class="form-control" id="bookname" placeholder="图书名称">
+                                </div>
+                                <div class="form-group">
+                                    <label for="booktype">图书分类</label>
+                                    <select class="form-control dropdown" id="booktype" placeholder="请选择图书类别">
+                                        <option>教材教辅</option>
+                                        <option>热门书籍</option>
+                                        <option>语言文学</option>
+                                        <option>哲学理论</option>
+                                        <option>计算机</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookauthor">图书作者</label>
+                                    <input type="text" class="form-control" id="bookauthor" placeholder="请输入图书作者">
+                                </div>
+                                <button class="btn btn-primary" id="btnsubmit">提交添加</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default panel-info">
+                        <div class="panel-heading">修改书籍</div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="bookid">图书ISBN</label>
+                                    <input type="text" class="form-control" id="bookid" placeholder="图书ISBN">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookname">图书名称</label>
+                                    <input type="text" class="form-control" id="bookname" placeholder="图书名称">
+                                </div>
+                                <div class="form-group">
+                                    <label for="booktype">图书分类</label>
+                                    <select class="form-control dropdown" id="booktype" placeholder="请选择图书类别">
+                                        <option>教材教辅</option>
+                                        <option>热门书籍</option>
+                                        <option>语言文学</option>
+                                        <option>哲学理论</option>
+                                        <option>计算机</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookauthor">图书作者</label>
+                                    <input type="text" class="form-control" id="bookauthor" placeholder="请输入图书作者">
+                                </div>
+                                <button class="btn btn-primary" id="btnsubmit">提交添加</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="panel panel-default ">
-                    <div class="panel-heading">表单</div>
+            <!--图书信息结束-->
+            <!--这里开始是学生的信息-->
+            <!--学生信息检索-->
+            <div id="studentinfo1">
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">学生信息查询</div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="studentid">学生学号</label>
+                                    <input type="text" class="form-control" id="studentid" placeholder="图书ISBN">
+                                </div>
+                                <button class="btn btn-primary">检索</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <span class="text-center">查询结果</span>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-stripted">
+                                <!--学生表-->
+                                <thead>
+                                <tr>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>邮箱</th>
+                                    <th>借阅书籍</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>2014217133</td>
+                                    <td>刘之类</td>
+                                    <td>1111</td>
+                                    <td>高数</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="4"><p>Are you OK?</p></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--学生注销-->
+            <div id="studentinfo2">
+                <div class="col-md-4">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">注销学生</div>
+                        <div class="panel-body">
+                            <div class="tabbable" id="tabs-806920">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#panel-123277" data-toggle="tab">学号注销</a>
+                                    </li>
+                                    <li>
+                                        <a href="#panel-437541" data-toggle="tab">年级注销</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="panel-123277">
+                                        <div class="form-group">
+                                            <label for="studentid2">学生学号</label>
+                                            <input type="text" class="form-control" id="studentid2" placeholder="输入注销学号">
+                                        </div>
+                                        <button class="btn btn-primary">检索</button>
+                                    </div>
+                                    <div class="tab-pane" id="panel-437541">
+                                        <div class="form-group">
+                                            <label for="schoolgrade">注销年级</label>
+                                            <input type="text" class="form-control" id="schoolgrade" placeholder="输入注销年级">
+                                        </div>
+                                        <button class="btn btn-primary">检索</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <span class="text-center">查询结果</span>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-stripted">
+                                <!--学生表-->
+                                <thead>
+                                <tr>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>邮箱</th>
+                                    <th>借阅书籍</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>2014217133</td>
+                                    <td>刘之类</td>
+                                    <td>1111</td>
+                                    <td>高数</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="4"><p>Are you OK?</p></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--学生的信息结束-->
+
+            <!--借阅和归还-->
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading" id="book_borrow">借阅填写</div>
                     <div class="panel-body">
                         <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">邮箱</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" />
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">密码</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile" />
-                                <p class="help-block">帮助提示</p>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" />
-                                    记住me
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">提交</button>
+                            <input type="text" placeholder="输入书籍的ISBN">
+                            <input type="text" placeholder="输入学生的学号">
+                            <button type="button" class="btn-success">提交</button>
                         </form>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">按钮</div>
+                <div class="panel">
+                    <div class="panel-heading" id="book_return">归还填写</div>
                     <div class="panel-body">
-
-                        <a class="btn btn-default" href="#" role="button">Link</a>
-                        <button class="btn btn-default" type="submit">Button</button>
-
-                        <button type="button" class="btn btn-default">（默认样式）Default</button>
-
-                        <button type="button" class="btn btn-primary">（首选项）Primary</button>
-
-
-                        <button type="button" class="btn btn-success">（成功）Success</button>
-
-
-                        <button type="button" class="btn btn-info">（一般信息）Info</button>
-
-
-
-                        <button type="button" class="btn btn-warning">（警告）Warning</button>
-
-                        <button type="button" class="btn btn-danger">（危险）Danger</button>
-
-
-                        <button type="button" class="btn btn-link">（链接）Link</button>
+                        <form>
+                            <input type="text" placeholder="输入书籍的ISBN">
+                            <input type="text" placeholder="输入学生的学号">
+                            <button type="button" class="btn-success">提交</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        提示框
-                    </div>
-                    <div class="panel-body">
-                        <div class="alert alert-success" role="alert">
-                            <a href="#" class="alert-link">...</a>
-                        </div>
-                        <div class="alert alert-info" role="alert">
-                            <a href="#" class="alert-link">...</a>
-                        </div>
-                        <div class="alert alert-warning" role="alert">
-                            <a href="#" class="alert-link">...</a>
-                        </div>
-                        <div class="alert alert-danger" role="alert">
-                            <a href="#" class="alert-link">...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        标签
-                    </div>
-                    <div class="panel-body">
-                        <span class="label label-default">Default</span>
-                        <span class="label label-primary">Primary</span>
-                        <span class="label label-success">Success</span>
-                        <span class="label label-info">Info</span>
-                        <span class="label label-warning">Warning</span>
-                        <span class="label label-danger">Danger</span>
-                    </div>
-                    <div class="panel-footer">
-                        底部
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="panel panel-default panel-2">
-                    <div class="panel-heading">
-                        面板2
-                    </div>
-                    <div class="panel-body">
-                        恩
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="panel panel-default">
-
-                    <div class="panel-body">
-                        默认无面板头
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default no-yj">
-
-                    <div class="panel-body">
-                        默认无面板头(去掉圆角)
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="panel panel-default panel-3">
-
-                    <div class="panel-body">
-                        面板3
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        表格
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-bordered tb-bg">
-                            <thead>
-                            <tr>
-                                <td>序号</td>
-                                <td>名称</td>
-                                <td>年龄</td>
-                                <td>性别</td>
-                                <td>住址</td>
-                                <td>QQ</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>小易</td>
-                                <td>21</td>
-                                <td>男</td>
-                                <td>china</td>
-                                <td>123456</td>
-                            </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default ">
-                    <div class="panel-heading">
-                        表格
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-bordered tb-hover">
-                            <thead>
-                            <tr>
-                                <td>序号</td>
-                                <td>名称</td>
-                                <td>年龄</td>
-                                <td>性别</td>
-                                <td>住址</td>
-                                <td class="text-center">操作</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>小易</td>
-                                <td>21</td>
-                                <td>男</td>
-                                <td>china</td>
-                                <td class=" text-center"><a href="#"><i class="glyphicon glyphicon-search"></i></a>&nbsp;&nbsp;<a href="#"><i class="glyphicon glyphicon-edit"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>小易</td>
-                                <td>21</td>
-                                <td>男</td>
-                                <td>china</td>
-                                <td class=" text-center"><a href="#"><i class="glyphicon glyphicon-search"></i></a>&nbsp;&nbsp;<a href="#"><i class="glyphicon glyphicon-edit"></i></a></td>
-                            </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        表格
-                    </div>
-                    <div class="panel-body">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <td>序号</td>
-                                <td>名称</td>
-                                <td>年龄</td>
-                                <td>性别</td>
-                                <td>住址</td>
-                                <td>QQ</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>小易</td>
-                                <td>21</td>
-                                <td>男</td>
-                                <td>china</td>
-                                <td>123456</td>
-                            </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <!--结束借阅和归还-->
         </div>
     </div>
-    <script rel="script" src="bootstrap/js/jquery-3.2.1.min.js"></script>
-    <script rel="script" src="bootstrap/js/bootstrap.min.js"></script>
-
 </div>
 
+<script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".dropdownMenu").dropdown();
         $(".nav-left-dropdown>a").click(function () {
-
-
             if ($(this).attr("d") != 1 && $(this).attr("d") != undefined) {
                 $(this).removeClass("nav-left-dropdown-a");
                 $this = $(this);
-                $(this).next("ul").slideUp(300, function () { $this.removeClass("nav-left-bottrom-border"); $this.removeClass("nav-left-dropdown-ul") });
+                $(this).next("ul").slideUp(300, function () {
+                    $this.removeClass("nav-left-bottrom-border");
+                    $this.removeClass("nav-left-dropdown-ul")
+                });
 
                 $(this).attr("d", "1");
 
@@ -496,15 +396,9 @@
                 $(this).addClass("nav-left-bottrom-border");
                 $(this).next("ul").addClass("nav-left-dropdown-ul").slideDown(300);
                 $(this).attr("d", "2");
-
             }
-
-
         })
     });
-
 </script>
-<!--放脚本的地方-->
-
 </body>
 </html>
