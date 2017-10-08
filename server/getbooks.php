@@ -25,8 +25,7 @@ if ($link)
                   'bookimg'=>$row['bookimg'],
                   'booknum'=>$row['booknum'],
               );
-           
- 
+
         }echo json_encode($arr);
      }
      else if($_POST['bookname'])
