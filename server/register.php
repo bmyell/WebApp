@@ -16,48 +16,36 @@ $dbpass = 'root';          // mysql用户名密码
 //接收数据表单
 $username = $_POST['username'];
 $password = $_POST['password'];
-$schoolid = $_POST['schoolid'];
+$school_id = $_POST['schoolid'];
 $email = $_POST['email'];
 
-
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-    die('连接失败: ' . mysqli_error($conn));
+/*面向对象*/
+$mysqli =new mysqli('127.0.0.1','root','root','webapp');
+/*检测连接*/
+if($mysqli->connect_errno){
+    printf("Conect Faile:%s\n",$mysqli->connect_error);
+    exit;
 }
-echo '连接成功<br />';
-
-echo "wht";
-
-//放置sql注入
-//$username = mysqli_real_escape_string($username);
-//$schoolid = mysqli_real_escape_string($schoolid);
-//$email    = mysqli_real_escape_string($email);
-
-// 设置编码，防止中文乱码
-
-mysqli_query($conn , "set names utf8");
-
-//数据库
+/*设置连接字符集*/
+mysqli_set_charset(utf8, $mysqli);
+//插入数据库的字段
 $sql = "INSERT INTO user ".
     "(school_id, username, password, email) ".
     "VALUES ".
-    "('$schoolid','$username','$password','$email')";
-//开始插
-mysqli_select_db( $conn, 'webapp' );
-$retval = mysqli_query( $conn, $sql );
-if(! $retval )
+    "('$school_id','$username','$password','$email')";
+
+if(!$mysqli->query($sql))
 {
-    die('无法插入数据: ' . mysqli_error($conn));
-    mysqli_close($conn);
-    require 'index.html';
+    die('无法插入数据:'.$mysqli->error);
+    $mysqli->close();
 }
 else{
-    echo "数据插入成功\n";
-    mysqli_close($conn);
-    require '../index.html';
+    die('插入成功:');
+    $mysqli->close();
 }
+
+
+
 
 
 //关闭数据库
