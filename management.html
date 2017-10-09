@@ -109,150 +109,157 @@
         <!--右边的内容-->
         <div class="main-right  col-md-10 col-md-offset-2">
             <!--这里开始是图书信息-->
-                <!--显示新增的书-->
-                <div class="container">
-                    <div class="row">
-                        <div  class="col-md-3" id="bookinfo">
-                            <div class="panel panel-default panel-info">
-                                <div class="panel-heading">新增书籍</div>
-                                <div class="panel-body">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label for="booknameNew">图书名称</label>
-                                            <input type="text" class="form-control" id="booknameNew" placeholder="图书名称">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="imgpathNew">图片路径</label>
-                                            <input type="text" class="form-control" id="imgpathNew" placeholder="输入图片路径" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="booknumNew">书籍数量</label>
-                                            <input type="text" class="form-control" id="booknumNew" placeholder="数量">
-                                        </div>
+            <!--显示新增的书 TODO 测试已经成功-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" id="bookinfo">
+                        <div class="panel panel-default panel-info">
+                            <div class="panel-heading">新增书籍</div>
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="booknameNew">图书名称</label>
+                                        <input type="text" class="form-control" id="booknameNew" placeholder="图书名称">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imgpathNew">图片路径</label>
+                                        <input type="text" class="form-control" id="imgpathNew" placeholder="输入图片路径"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="booknumNew">书籍数量</label>
+                                        <input type="text" class="form-control" id="booknumNew" placeholder="数量">
+                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="booktypeNew">图书分类</label>
-                                            <select class="form-control dropdown" id="booktypeNew" placeholder="请选择图书类别">
-                                                <option>教材教辅</option>
-                                                <option>热门书籍</option>
-                                                <option>语言文学</option>
-                                                <option>哲学理论</option>
-                                                <option>计算机</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="bookauthorNew">图书作者</label>
-                                            <input type="text" class="form-control" id="bookauthorNew" placeholder="请输入图书作者">
-                                        </div>
-                                        <button class="btn btn-primary" id="btnshowlastbook">提交添加</button>
-                                    </form>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="booktypeNew">图书分类</label>
+                                        <select class="form-control dropdown" id="booktypeNew" placeholder="请选择图书类别">
+                                            <option>教材教辅</option>
+                                            <option>热门书籍</option>
+                                            <option>语言文学</option>
+                                            <option>哲学理论</option>
+                                            <option>计算机</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bookauthorNew">图书作者</label>
+                                        <input type="text" class="form-control" id="bookauthorNew"
+                                               placeholder="请输入图书作者">
+                                    </div>
+                                    <button class="btn btn-primary" id="btnshowlastbook">提交添加</button>
+                                </form>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    操作结果
-                                </div>
-                                <div class="panel-body">
-                                    <table class="table" id="booktable">
-                                        <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>类别</th>
-                                            <th>图片</th>
-                                            <th>数目</th>
-                                            <th>图书名称</th>
-                                            <th>状态</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="list">
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                操作结果
+                            </div>
+                            <div class="panel-body">
+                                <table class="table" id="booktableNew">
+                                    <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>类别</th>
+                                        <th>图片</th>
+                                        <th>数目</th>
+                                        <th>图书名称</th>
+                                        <th>状态</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="list">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <!--这里显示删掉的书-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">删除书籍</div>
+                            <div class="panel-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="bookid">图书ISBN</label>
+                                        <input type="text" class="form-control" id=deleteid" placeholder="输入要删除的ISBN号">
+                                    </div>
+                                    <button class="btn btn-primary" id="btnsubmitde">提交删除</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                <div class="col-md-3">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">删除书籍</div>
-                        <div class="panel-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="bookid">图书ISBN</label>
-                                    <input type="text" class="form-control" id=deleteid" placeholder="输入要删除的ISBN号">
-                                </div>
-                                <button class="btn btn-primary" id="btnsubmitde">提交删除</button>
-                            </form>
-                        </div>
+
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">查找书籍</div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="bookid">图书ISBN</label>
+                                <input type="text" class="form-control" id="bookid" placeholder="图书ISBN">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookname">图书名称</label>
+                                <input type="text" class="form-control" id="bookname" placeholder="图书名称">
+                            </div>
+                            <div class="form-group">
+                                <label for="booktype">图书分类</label>
+                                <select class="form-control dropdown" id="booktype" placeholder="请选择图书类别">
+                                    <option>教材教辅</option>
+                                    <option>热门书籍</option>
+                                    <option>语言文学</option>
+                                    <option>哲学理论</option>
+                                    <option>计算机</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookauthor">图书作者</label>
+                                <input type="text" class="form-control" id="bookauthor" placeholder="请输入图书作者">
+                            </div>
+                            <button class="btn btn-primary" id="btnsubmit">提交添加</button>
+                        </form>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">查找书籍</div>
-                        <div class="panel-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="bookid">图书ISBN</label>
-                                    <input type="text" class="form-control" id="bookid" placeholder="图书ISBN">
-                                </div>
-                                <div class="form-group">
-                                    <label for="bookname">图书名称</label>
-                                    <input type="text" class="form-control" id="bookname" placeholder="图书名称">
-                                </div>
-                                <div class="form-group">
-                                    <label for="booktype">图书分类</label>
-                                    <select class="form-control dropdown" id="booktype" placeholder="请选择图书类别">
-                                        <option>教材教辅</option>
-                                        <option>热门书籍</option>
-                                        <option>语言文学</option>
-                                        <option>哲学理论</option>
-                                        <option>计算机</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="bookauthor">图书作者</label>
-                                    <input type="text" class="form-control" id="bookauthor" placeholder="请输入图书作者">
-                                </div>
-                                <button class="btn btn-primary" id="btnsubmit">提交添加</button>
-                            </form>
-                        </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default panel-info">
+                    <div class="panel-heading">修改书籍</div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="bookid2">图书ISBN</label>
+                                <input type="text" class="form-control" id="bookid2" placeholder="图书ISBN">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookname2">图书名称</label>
+                                <input type="text" class="form-control" id="bookname2" placeholder="图书名称">
+                            </div>
+                            <div class="form-group">
+                                <label for="booktype2">图书分类</label>
+                                <select class="form-control dropdown" id="booktype2" placeholder="请选择图书类别">
+                                    <option>教材教辅</option>
+                                    <option>热门书籍</option>
+                                    <option>语言文学</option>
+                                    <option>哲学理论</option>
+                                    <option>计算机</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookauthor2">图书作者</label>
+                                <input type="text" class="form-control" id="bookauthor2" placeholder="请输入图书作者">
+                            </div>
+                            <button class="btn btn-primary" id="btnsubmit2">提交添加</button>
+                        </form>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default panel-info">
-                        <div class="panel-heading">修改书籍</div>
-                        <div class="panel-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="bookid2">图书ISBN</label>
-                                    <input type="text" class="form-control" id="bookid2" placeholder="图书ISBN">
-                                </div>
-                                <div class="form-group">
-                                    <label for="bookname2">图书名称</label>
-                                    <input type="text" class="form-control" id="bookname2" placeholder="图书名称">
-                                </div>
-                                <div class="form-group">
-                                    <label for="booktype2">图书分类</label>
-                                    <select class="form-control dropdown" id="booktype2" placeholder="请选择图书类别">
-                                        <option>教材教辅</option>
-                                        <option>热门书籍</option>
-                                        <option>语言文学</option>
-                                        <option>哲学理论</option>
-                                        <option>计算机</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="bookauthor2">图书作者</label>
-                                    <input type="text" class="form-control" id="bookauthor2" placeholder="请输入图书作者">
-                                </div>
-                                <button class="btn btn-primary" id="btnsubmit2">提交添加</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
             <!--图书信息结束-->
             <!--这里开始是学生的信息-->
@@ -325,14 +332,16 @@
                                     <div class="tab-pane active" id="panel-123277">
                                         <div class="form-group">
                                             <label for="studentid2">学生学号</label>
-                                            <input type="text" class="form-control" id="studentid2" placeholder="输入注销学号">
+                                            <input type="text" class="form-control" id="studentid2"
+                                                   placeholder="输入注销学号">
                                         </div>
                                         <button class="btn btn-primary">检索</button>
                                     </div>
                                     <div class="tab-pane" id="panel-437541">
                                         <div class="form-group">
                                             <label for="schoolgrade">注销年级</label>
-                                            <input type="text" class="form-control" id="schoolgrade" placeholder="输入注销年级">
+                                            <input type="text" class="form-control" id="schoolgrade"
+                                                   placeholder="输入注销年级">
                                         </div>
                                         <button class="btn btn-primary">检索</button>
                                     </div>

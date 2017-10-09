@@ -2,6 +2,8 @@
 $('documnet').ready(function () {
     // language=JQuery-CSS
     var $bookTable = $('#booktable tbody');
+
+    var $bookTableNew = $('#booktableNew tbody');
     //刷新页面
     // refreshBook();
     $('#btnsubmit').click(function (e) {
@@ -194,7 +196,7 @@ $('documnet').ready(function () {
     }
     //写成函数好了
     function showinsertTable() {
-        $bookTable.empty();
+        $bookTableNew.empty();
         $.ajax({
             url: 'showlastbook.php',
             type: 'post',
@@ -214,7 +216,7 @@ $('documnet').ready(function () {
 
                 var $tRow = $('<tr>');
                 $tRow.append($bookid, $booktype, $bookimg, $booknum, $bookname, $booktd);
-                $bookTable.append($tRow);
+                $bookTableNew.append($tRow);
             }
 
         });
