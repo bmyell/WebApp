@@ -4,6 +4,7 @@ header("Content-type:application/json;charset=UTF-8");
 $link=mysqli_connect('127.0.0.1','root','root','library','3306');
 if ($link)
 {//执行查询最后一条记录
+
         $sql="select * from books order by bookid DESC limit 1";
         mysqli_query($link,'SET NAMES utf8');
         $result = mysqli_query($link,$sql);

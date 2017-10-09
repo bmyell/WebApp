@@ -118,20 +118,21 @@
                                 <div class="panel-body">
                                     <form role="form">
                                         <div class="form-group">
-                                            <label for="bookid">图书序号</label>
-                                            <input type="text" class="form-control" id="bookid1" placeholder="图书序号">
+                                            <label for="booknameNew">图书名称</label>
+                                            <input type="text" class="form-control" id="booknameNew" placeholder="图书名称">
                                         </div>
                                         <div class="form-group">
-                                            <label for="bookname">图书名称</label>
-                                            <input type="text" class="form-control" id="bookname1" placeholder="图书名称">
+                                            <label for="imgpathNew">图片路径</label>
+                                            <input type="text" class="form-control" id="imgpathNew" placeholder="输入图片路径" />
                                         </div>
                                         <div class="form-group">
-                                            <label for="imgpath1">图片路径</label>
-                                            <input type="text" class="form-control" id="imgpath1" placeholder="输入图片路径" />
+                                            <label for="booknumNew">书籍数量</label>
+                                            <input type="text" class="form-control" id="booknumNew" placeholder="数量">
                                         </div>
+
                                         <div class="form-group">
-                                            <label for="booktype">图书分类</label>
-                                            <select class="form-control dropdown" id="booktype1" placeholder="请选择图书类别">
+                                            <label for="booktypeNew">图书分类</label>
+                                            <select class="form-control dropdown" id="booktypeNew" placeholder="请选择图书类别">
                                                 <option>教材教辅</option>
                                                 <option>热门书籍</option>
                                                 <option>语言文学</option>
@@ -140,8 +141,8 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="bookauthor">图书作者</label>
-                                            <input type="text" class="form-control" id="bookauthor1" placeholder="请输入图书作者">
+                                            <label for="bookauthorNew">图书作者</label>
+                                            <input type="text" class="form-control" id="bookauthorNew" placeholder="请输入图书作者">
                                         </div>
                                         <button class="btn btn-primary" id="btnshowlastbook">提交添加</button>
                                     </form>
@@ -162,7 +163,7 @@
                                             <th>图片</th>
                                             <th>数目</th>
                                             <th>图书名称</th>
-                                            <th>操作</th>
+                                            <th>状态</th>
                                         </tr>
                                         </thead>
                                         <tbody id="list">
