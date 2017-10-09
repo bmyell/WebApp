@@ -5,7 +5,7 @@ $('documnet').ready(function () {
 
     var $bookTableNew = $('#booktableNew tbody');
     //刷新页面
-    // refreshBook();
+    refreshBook();
     $('#btnsubmit').click(function (e) {
         e.preventDefault();
         //输入判断
@@ -117,9 +117,30 @@ $('documnet').ready(function () {
     });
 
     /*测试成功！！！！！！！！！！*/
+    $('#btnsubmitde').click(
+        function (e) {
+            if ($('#deleteid').val() === "") {
+                $('#deleteid').parent().addClass('has-error');
+            }
+            else
+                $.ajax({
+                        url: 'delete.php',
+                        type: 'post',
+                        data: {bookid: $('#deleteid').val()},
+                        success: function (data) {
+                            console.log(data);
+                            console.log('删除成功');
+                            refreshBook();
+                        }
+                    }
+                );
+
+
+        }
+    );
+
 
     /*第二个插入版本，这个需要先插后面再显示*/
-
     $('#btnshowlastbook').click(function (e) {
         e.preventDefault();
         //输入判断
@@ -194,6 +215,7 @@ $('documnet').ready(function () {
             }
         });
     }
+
     //写成函数好了
     function showinsertTable() {
         $bookTableNew.empty();
