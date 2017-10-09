@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">欢迎管理系统使用！</a>
+                <a class="navbar-brand" href="#">欢迎使用管理系统！</a>
             </div>
 
             <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
@@ -109,14 +109,14 @@
         <!--右边的内容-->
         <div class="main-right  col-md-10 col-md-offset-2">
             <!--这里开始是图书信息-->
-            <div>
+                <!--显示新增的书-->
                 <div class="container">
                     <div class="row">
                         <div  class="col-md-3" id="bookinfo">
                             <div class="panel panel-default panel-info">
                                 <div class="panel-heading">新增书籍</div>
                                 <div class="panel-body">
-                                    <form role="form"><!--BUG-->
+                                    <form role="form">
                                         <div class="form-group">
                                             <label for="bookid">图书序号</label>
                                             <input type="text" class="form-control" id="bookid1" placeholder="图书序号">
@@ -143,7 +143,7 @@
                                             <label for="bookauthor">图书作者</label>
                                             <input type="text" class="form-control" id="bookauthor1" placeholder="请输入图书作者">
                                         </div>
-                                        <button class="btn btn-primary" id="btnsubmit1">提交添加</button>
+                                        <button class="btn btn-primary" id="btnshowlastbook">提交添加</button>
                                     </form>
                                 </div>
                             </div>
@@ -151,86 +151,29 @@
                         <div class="col-md-8">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <span class="text-center">查询结果</span>
+                                    操作结果
                                 </div>
                                 <div class="panel-body">
-                                    < class="table table-stripted">
-                                        <!--书籍表-->
-                                        <!--`bookid` int(11) NOT NULL,-->
-                                        <!--`booktype` varchar(225) NOT NULL,-->
-                                        <!--`bookimg` varchar(225) NOT NULL,-->
-                                        <!--`booknum` int(11) NOT NULL,-->
-                                        <!--`bookname` varchar(225) NOT NULL-->
+                                    <table class="table" id="booktable">
                                         <thead>
                                         <tr>
-                                            <th>序号</th>
-                                            <th>书籍类型</th>
-                                            <th>图片路径</th>
-                                            <th>书籍数量</th>
-                                            <th>书籍名称</th>
-                                            <!--TODO 这里增加出版社在数据库测试时先不加-->
+                                            <th>id</th>
+                                            <th>类别</th>
+                                            <th>图片</th>
+                                            <th>数目</th>
+                                            <th>图书名称</th>
+                                            <th>操作</th>
                                         </tr>
                                         </thead>
-                                    <tbody id="textHint">
-
-                                    </tbody>
-                                        <script>
-                                            function showSite(str)
-                                            {
-                                                if (str=="")
-                                                {
-                                                    document.getElementById("txtHint").innerHTML="";
-                                                    return;
-                                                }
-                                                if (window.XMLHttpRequest)
-                                                {
-                                                    // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-                                                    xmlhttp=new XMLHttpRequest();
-                                                }
-                                                else
-                                                {
-                                                    // IE6, IE5 浏览器执行代码
-                                                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                                                }
-                                                xmlhttp.onreadystatechange=function()
-                                                {
-                                                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-                                                    {
-                                                        document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
-                                                    }
-                                                }
-                                                xmlhttp.open("GET","showuser.php?q="+str,true);
-                                                xmlhttp.send();
-                                            }
-                                        </script>
-                                        <!--<script language="php">-->
-                                             <!--$link=mysql_connect('localhost','root','root')or die("数据库连接失败");-->
-                                                <!--//连接数据库-->
-                                                <!--mysqli_select_db('webapp',$link);//选择数据库-->
-                                                <!--mysqli_query("set names utf8");//设置编码格式-->
-
-                                                <!--$q="select * from book";//设置查询指令-->
-                                                <!--$result=mysql_query($q);//执行查询-->
-                                                <!--while($row=mysqli_fetch_assoc($result))//将result结果集中查询结果取出一条-->
-                                                <!--{-->
-                                                 <!--echo"<tr><td>".$row["bookid"]."</td><td>".$row["booktype"]."</td><td>".$row["bookimg"]."</td><td>".$row["booknum"]."</td><td>".$row["bookname"]."</td><tr>";-->
-                                                <!--}-->
-                                        <!--</script>-->
-
-
-
-                                        <tfoot>
-                                        <tr>
-                                            <td colspan="4"><p>Are you OK?</p></td>
-                                        </tr>
-                                        </tfoot>
+                                        <tbody id="list">
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                         </div>
                     </div>
-                </div>
+
                 <div class="col-md-3">
                     <div class="panel panel-danger">
                         <div class="panel-heading">删除书籍</div>
@@ -309,7 +252,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
             <!--图书信息结束-->
             <!--这里开始是学生的信息-->
             <!--学生信息检索-->
@@ -463,11 +406,11 @@
         </div>
     </div>
 </div>
+</div>
 
-
-<script src="bootstrap/js/management.js"></script>
 <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="management.js"></script>
 <script>
     $(document).ready(function () {
         $(".dropdownMenu").dropdown();

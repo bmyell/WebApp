@@ -5,6 +5,8 @@
  * Date: 17-10-8
  * Time: 下午2:18
  */
+header("Content-type:application/json;charset=UTF-8");
+
 $q = isset($_GET["q"]) ? intval($_GET["q"]) : '';
 
 if(empty($q)) {
