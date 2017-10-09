@@ -1,14 +1,13 @@
 <?php
 header("Content-type:application/json;charset=UTF-8");
 
-$link=mysqli_connect('localhost','root','root','library','3306');
+$link=mysqli_connect('127.0.0.1','root','root','library','3306');
 if ($link)
   {//执行成功的过程
-   
-      if($_POST['booktype']){
+        if($_POST['booktype']){
          $booktype=$_POST['booktype'];
          $page=intval($_POST['pageNum']);
-           $sql="SELECT bookid FROM  books WHERE `booktype`='{$booktype}'";
+         $sql="SELECT bookid FROM  books WHERE `booktype`='{$booktype}'";
          mysqli_query($link,'SET NAMES utf8');
           $result = mysqli_query($link,$sql);
           $total=mysqli_num_rows($result);//该书籍种类的总记录数

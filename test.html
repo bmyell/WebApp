@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 cl-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">图书编辑</h3>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <!--  <div class="form-group">
+                             <label for="bookid">图书id</label>
+                             <input type="text" class="form-control" id="bookid" placeholder="bookid">
+                         </div> -->
+                        <div class="form-group">
+                            <label for="booktype">图书类别</label>
+                            <input type="text" class="form-control" id="booktype" placeholder="教材教辅/热门书籍/语言文学/哲学理论/计算机">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookimg">图书图片</label>
+                            <input type="text" class="form-control" id="bookimg" placeholder="请输入图片路径">
+                        </div>
+                        <div class="form-group">
+                            <label for="booknum">剩余数目</label>
+                            <input type="text" class="form-control" id="booknum" placeholder="请输入图书剩余数目">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookname">图书名称</label>
+                            <input type="text" class="form-control" id="bookname" placeholder="请输入图书名称">
+                        </div>
+                        <button class="btn btn-primary" id="btnsubmit">提交添加</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">图书列表</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table" id="booktable">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>类别</th>
+                            <th>图片</th>
+                            <th>数目</th>
+                            <th>图书名称</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="list">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="pagecount"></div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="test.js"></script>
+</body>
+</html>
