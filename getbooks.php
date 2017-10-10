@@ -11,7 +11,7 @@ if ($link)
          mysqli_query($link,'SET NAMES utf8');
           $result = mysqli_query($link,$sql);
           $total=mysqli_num_rows($result);//该书籍种类的总记录数
-          $pageSize=20;//每页显示的数目
+          $pageSize=6;//每页显示的数目
           $totalPage=ceil($total/$pageSize);//总页数
           $startPage=$page*$pageSize;
           $arr['total']=$total;
@@ -35,7 +35,7 @@ if ($link)
        mysqli_query($link,'SET NAMES utf8');
        $result = mysqli_query($link,$sql);
         $total=mysqli_num_rows($result);//该书籍的总记录数
-        $pageSize=20;//每页显示的数目
+        $pageSize=6;//每页显示的数目
           $totalPage=ceil($total/$pageSize);//总页数
           $startPage=$page*$pageSize;
           $arr['total']=$total;

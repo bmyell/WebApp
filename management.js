@@ -272,11 +272,10 @@ $('documnet').ready(function () {
     }
 
     var booktype;
-    booktype='教材教辅';
+    booktype='计算机';
     refreshbooks(booktype, 1);
     var curPage = 1; //当前页码
     var total, pageSize, totalPage;
-
     /*分页函数来了*/
 });
 
@@ -290,7 +289,7 @@ function refreshbooks(type, page) { //获取数据
         datatype: 'json',
         data: { booktype: type, bookname:'',pageNum: page - 1 },
         beforeSend: function() {
-            $("#list tbody").append("<li id='loading'>loading...</li>");
+            $("#list tbody").append("<td id='loading'>loading...</td>");
         },
         success: function(data) {
             $lists.empty();
@@ -300,12 +299,21 @@ function refreshbooks(type, page) { //获取数据
             totalPage = data.totalPage; //总页数
             var list = data.list;
             list.forEach(function(item, index, array) {
-                var $list = $('<li></li>').prependTo($lists);/*在每个list前面插入('<li></li>')*/
-                var $a = $('<a></a>').attr('href', '#').appendTo($list);/*改变属性*/
-                var $img = $('<img>').attr('src', item.bookimg).appendTo($a);/*这里是改变图片的属性*/
-                var $p = $('<p></p>').html('剩余数目为').appendTo($list);/*前面的内容附加到后面*/
+                var $list = $('<td>').prependTo($lists);/*在每个list前面插入('<li></li>')*/
+                var $td = $('<td>').appendTo($list);
+                var $a = $('<a></a>').attr('href', '#').appendTo($td);/*改变属性*/
+                        $('<img>').attr('height', 200);
+                        $('<img>').attr('width', 200);
+                var $img = $('<img>').attr('src', item.bookimg).addClass('width',20).addClass('height',20).appendTo($a);/*这里是改变图片的属性*/
+
+
+
+                var $td = $('<td>').appendTo($list);
+                var $p = $('<p></p>').html('剩余数目为').appendTo($td);/*前面的内容附加到后面*/
                 var $i = $('<i></i>').html(item.booknum).appendTo($p);
-                var $name = $('<p></p>').html('书名').appendTo($list);
+
+                var $td = $('<td>').appendTo($list);
+                var $name = $('<p></p>').html('书名').appendTo($td);
                 var $i2 = $('<i></i>').html(item.booktype).appendTo($name);
                 console.log(item.bookname);
                 console.log(item.booktype);
