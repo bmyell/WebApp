@@ -14,8 +14,6 @@ if($link){
     mysqli_query($link,$sql);
 
    echo json_encode(array('修改信息'=>'修改成功'));
-
-
 }
  mysqli_close($link);
 ?>

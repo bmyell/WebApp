@@ -270,4 +270,79 @@ $('documnet').ready(function () {
 
         });
     }
+
+    var booktype;
+    booktype='教材教辅';
+    refreshbooks(booktype, 1);
+    var curPage = 1; //当前页码
+    var total, pageSize, totalPage;
+
+    /*分页函数来了*/
 });
+
+
+//刷新页面，载入数据
+function refreshbooks(type, page) { //获取数据
+    var $lists = $('section #list tbody');
+    $.ajax({
+        url: 'getbooks.php',
+        type: 'POST',
+        datatype: 'json',
+        data: { booktype: type, bookname:'',pageNum: page - 1 },
+        beforeSend: function() {
+            $("#list tbody").append("<li id='loading'>loading...</li>");
+        },
+        success: function(data) {
+            $lists.empty();
+            total = data.total; //总记录数
+            pageSize = data.pageSize; //每页显示条数
+            curPage = page; //当前页
+            totalPage = data.totalPage; //总页数
+            var list = data.list;
+            list.forEach(function(item, index, array) {
+                var $list = $('<li></li>').prependTo($lists);/*在每个list前面插入('<li></li>')*/
+                var $a = $('<a></a>').attr('href', '#').appendTo($list);/*改变属性*/
+                var $img = $('<img>').attr('src', item.bookimg).appendTo($a);/*这里是改变图片的属性*/
+                var $p = $('<p></p>').html('剩余数目为').appendTo($list);/*前面的内容附加到后面*/
+                var $i = $('<i></i>').html(item.booknum).appendTo($p);
+                var $name = $('<p></p>').html('书名').appendTo($list);
+                var $i2 = $('<i></i>').html(item.booktype).appendTo($name);
+                console.log(item.bookname);
+                console.log(item.booktype);
+                console.log(item.bookid);
+                //.log($('<p></p>').html('haha'));
+            });
+        },
+
+        complete: function() { //生成分页条
+            getPageBar();
+        },
+        error: function() {
+            console.log("数据加载失败");
+        }
+
+    });
+}
+//获取分页条
+function getPageBar() {
+    //页码大于最大页数
+    var pageStr = "";
+    if (curPage > totalPage) curPage = totalPage;
+    //页码小于1
+    if (curPage < 1) curPage = 1;
+    pageStr += "<span>共" + total + "条</span></span>" + curPage + "/" + totalPage + "</span>";
+    //如果是第一页
+    if (curPage == 1) {
+        pageStr += "<span>首页</span><span>上一页</span>";
+    } else {
+        pageStr += "<span ><a href='#' rel='1'>首页</a></span><span><a href='#' rel='" + (curPage - 1) + "'>上一页</a></span>";
+    }
+    //如果是最后页
+    if (curPage >= totalPage) {
+        pageStr += "<span>下一页</span><span>尾页</span>";
+
+    } else {
+        pageStr += "<span ><a href='#'  rel='" + (parseInt(curPage) + 1) + "'>下一页</a></span><span ><a href='#' rel='" + totalPage + "'>尾页</a></span>";
+    }
+    $('#pagecount').html(pageStr);
+}
