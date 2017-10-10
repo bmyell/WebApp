@@ -4,8 +4,11 @@ $('documnet').ready(function () {
     var $bookTable = $('#booktable tbody');
 
     var $bookTableNew = $('#booktableNew tbody');
+
+    var $booktableSearch =$('#booktableSearch tbody');
     //刷新页面
     refreshBook();
+    refreshtablesearch();
     $('#btnsubmit').click(function (e) {
         e.preventDefault();
         //输入判断
@@ -57,7 +60,7 @@ $('documnet').ready(function () {
 
     //删除图书的功能
     var deleteId = null;
-    $bookTable.on('click', '.btn-danger', function (e) {
+    $booktableSearch.on('click', '.btn-danger', function (e) {
         $('#deleModal').modal('show');
         deleteId = ($(this).parent().prevAll().eq(4).html());
         console.log(deleteId);
@@ -79,7 +82,7 @@ $('documnet').ready(function () {
     });
     //修改图书
     var updateId = null;
-    $bookTable.on('click', '.btn-primary', function (e) {
+    $booktableSearch.on('click', '.btn-primary', function (e) {
         $('#updateModal').modal('show');
         updateId = $(this).parent().prevAll().eq(4).html();
         $.ajax({
@@ -134,8 +137,6 @@ $('documnet').ready(function () {
                         }
                     }
                 );
-
-
         }
     );
 
@@ -211,6 +212,32 @@ $('documnet').ready(function () {
                     var $tRow = $('<tr>');
                     $tRow.append($bookid, $booktype, $bookimg, $booknum, $bookname, $booktd);
                     $bookTable.append($tRow);
+                });
+            }
+        });
+    }
+
+    function refreshtablesearch() {
+        $booktableSearch.empty();
+        $.ajax({
+            url: 'getbooks.php',
+            type: 'POST',
+            datatype: 'json',
+            data: {booktype: '', bookname: ''},
+            success: function (ss) {
+                ss.forEach(function (item, index, array) {
+                    var $bookid = $('<td>').html(item.bookid);
+                    var $booktype = $('<td>').html(item.booktype);
+                    var $bookimg = $('<td>').html(item.bookimg);
+                    var $booknum = $('<td>').html(item.booknum);
+                    var $bookname = $('<td>').html(item.bookname);
+                    var $booktd = $('<td>');
+                    var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('编辑');
+                    var $btndele = $('<button>').addClass('btn btn-xs btn-danger').html('删除');
+                    $booktd.append($bookbtn, $btndele);
+                    var $tRow = $('<tr>');
+                    $tRow.append($bookid, $booktype, $bookimg, $booknum, $bookname, $booktd);
+                    $booktableSearch.append($tRow);
                 });
             }
         });
