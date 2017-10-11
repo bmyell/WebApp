@@ -12,35 +12,35 @@ $('documnet').ready(function () {
     $('#btnsubmit').click(function (e) {
         e.preventDefault();
         //输入判断
-        if ($('#booktype').val() === "" || $('#bookimg').val() === "" || $('#booknum').val() === "" || $('#bookname').val() === "") {
+        if ($('#booktype').val() === "" || $('#bookWR').val() === "" || $('#bookNum').val() === "" || $('#bookName').val() === "") {
 
             if ($('#booktype').val() === "") {
                 $('#booktype').parent().addClass('has-error');
             } else {
                 $('#booktype').parent().removeClass('has-error');
             }
-            if ($('#bookimg').val() === "") {
-                $('#bookimg').parent().addClass('has-error');
+            if ($('#bookWR').val() === "") {
+                $('#bookWR').parent().addClass('has-error');
             } else {
-                $('#bookimg').parent().removeClass('has-error');
+                $('#bookWR').parent().removeClass('has-error');
             }
-            if ($('#booknum').val() === "") {
-                $('#booknum').parent().addClass('has-error');
+            if ($('#bookNum').val() === "") {
+                $('#bookNum').parent().addClass('has-error');
             } else {
-                $('#booknum').parent().removeClass('has-error');
+                $('#bookNum').parent().removeClass('has-error');
             }
-            if ($('#bookname').val() === "") {
-                $('#bookname').parent().addClass('has-error');
+            if ($('#bookName').val() === "") {
+                $('#bookName').parent().addClass('has-error');
             } else {
-                $('#bookname').parent().removeClass('has-error');
+                $('#bookName').parent().removeClass('has-error');
             }
         } else {
             var jsonBooks = {
-                // bookid: $('#bookid').val(),
+                // bookID: $('#bookID').val(),
                 booktype: $('#booktype').val(),
-                bookimg: $('#bookimg').val(),
-                booknum: $('#booknum').val(),
-                bookname: $('#bookname').val()
+                bookWR: $('#bookWR').val(),
+                bookNum: $('#bookNum').val(),
+                bookName: $('#bookName').val()
             };
             //提交添加的新闻
             $.ajax({
@@ -70,7 +70,7 @@ $('documnet').ready(function () {
             $.ajax({
                 url: 'delete.php',
                 type: 'post',
-                data: {bookid: deleteId},
+                data: {bookID: deleteId},
                 success: function (data) {
                     console.log(data);
                     $('#deleModal').modal('hide');
@@ -89,13 +89,13 @@ $('documnet').ready(function () {
             url: 'current.php',
             type: 'get',
             datatype: 'json',
-            data: {bookid: updateId},
+            data: {bookID: updateId},
             success: function (data) {
-                // $('#ubookid').val(data[0].bookid)
+                // $('#ubookID').val(data[0].bookID)
                 $('#ubooktype').val(data[0].booktype);
-                $('#ubookimg').val(data[0].bookimg);
-                $('#ubooknum').val(data[0].booknum);
-                $('#ubookname').val(data[0].bookname);
+                $('#ubookWR').val(data[0].bookWR);
+                $('#ubookNum').val(data[0].bookNum);
+                $('#ubookName').val(data[0].bookName);
             }
         });
     });
@@ -105,10 +105,10 @@ $('documnet').ready(function () {
             type: 'post',
             data: {
                 booktype: $('#ubooktype').val(),
-                bookimg: $('#ubookimg').val(),
-                booknum: $('#ubooknum').val(),
-                bookname: $('bookname').val(),
-                bookid: updateId
+                bookWR: $('#ubookWR').val(),
+                bookNum: $('#ubookNum').val(),
+                bookName: $('bookName').val(),
+                bookID: updateId
             },
             success: function (data) {
                 console.log(data);
@@ -129,7 +129,7 @@ $('documnet').ready(function () {
                 $.ajax({
                         url: 'delete.php',
                         type: 'post',
-                        data: {bookid: $('#deleteid').val()},
+                        data: {bookID: $('#deleteid').val()},
                         success: function (data) {
                             console.log(data);
                             console.log('删除成功');
@@ -145,36 +145,40 @@ $('documnet').ready(function () {
     $('#btnshowlastbook').click(function (e) {
         e.preventDefault();
         //输入判断
-        if ($('#booktypeNew').val() === "" || $('#bookimgNew').val() === "" || $('#booknumNew').val() === "" || $('#booknameNew').val() === "") {
+        if ($('#booktypeNew').val() === "" || $('#bookWRNew').val() === "" || $('#bookNumNew').val() === "" || $('#bookNameNew').val() === "") {
 
             if ($('#booktypeNew').val() === "") {
                 $('#booktypeNew').parent().addClass('has-error');
             } else {
                 $('#booktypeNew').parent().removeClass('has-error');
             }
-            if ($('#bookimgNew').val() === "") {
-                $('#bookimgNew').parent().addClass('has-error');
+            if ($('#bookWRNew').val() === "") {
+                $('#bookWRNew').parent().addClass('has-error');
             } else {
-                $('#bookimgNew').parent().removeClass('has-error');
+                $('#bookWRNew').parent().removeClass('has-error');
             }
-            if ($('#booknumNew').val() === "") {
-                $('#booknumNEw').parent().addClass('has-error');
+            if ($('#bookNumNew').val() === "") {
+                $('#bookNumNEw').parent().addClass('has-error');
             } else {
-                $('#booknumNew').parent().removeClass('has-error');
+                $('#bookNumNew').parent().removeClass('has-error');
             }
-            if ($('#booknameNew').val() === "") {
-                $('#booknameNew').parent().addClass('has-error');
+            if ($('#bookNameNew').val() === "") {
+                $('#bookNameNew').parent().addClass('has-error');
             } else {
-                $('#booknameNew').parent().removeClass('has-error');
+                $('#bookNameNew').parent().removeClass('has-error');
             }
         } else {
+
             var jsonBooks = {
-                // bookid: $('#bookid').val(),
+                bookID: $('#bookIDNew').val(),
+                bookName: $('#bookNameNew').val(),
                 booktype: $('#booktypeNew').val(),
-                bookimg: $('#bookimgNew').val(),
-                booknum: $('#booknumNew').val(),
-                bookname: $('#booknameNew').val()
+                bookWR: $('#bookWRNew').val(),
+                bookPress: $('#bookPressNew').val(),
+                bookNum: $('#bookNumNew').val()
             };
+
+            console.log(jsonBooks);
             //提交添加的新闻
             $.ajax({
                 url: 'insert.php',
@@ -184,6 +188,7 @@ $('documnet').ready(function () {
                 success: function (data) {
                     console.log(data);
                     //刷新页面
+                    console.log(data.bookID);
                     showinsertTable();
                 }
             });
@@ -197,20 +202,20 @@ $('documnet').ready(function () {
             url: 'getbooks.php',
             type: 'POST',
             datatype: 'json',
-            data: {booktype: '', bookname: ''},
+            data: {booktype: '', bookName: ''},
             success: function (ss) {
                 ss.forEach(function (item, index, array) {
-                    var $bookid = $('<td>').html(item.bookid);
+                    var $bookID = $('<td>').html(item.bookID);
                     var $booktype = $('<td>').html(item.booktype);
-                    var $bookimg = $('<td>').html(item.bookimg);
-                    var $booknum = $('<td>').html(item.booknum);
-                    var $bookname = $('<td>').html(item.bookname);
+                    var $bookWR = $('<td>').html(item.bookWR);
+                    var $bookNum = $('<td>').html(item.bookNum);
+                    var $bookName = $('<td>').html(item.bookName);
                     var $booktd = $('<td>');
                     var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('编辑');
                     var $btndele = $('<button>').addClass('btn btn-xs btn-danger').html('删除');
                     $booktd.append($bookbtn, $btndele);
                     var $tRow = $('<tr>');
-                    $tRow.append($bookid, $booktype, $bookimg, $booknum, $bookname, $booktd);
+                    $tRow.append($bookID, $booktype, $bookWR, $bookNum, $bookName, $booktd);
                     $bookTable.append($tRow);
                 });
             }
@@ -223,20 +228,21 @@ $('documnet').ready(function () {
             url: 'getbooks.php',
             type: 'POST',
             datatype: 'json',
-            data: {booktype: '', bookname: ''},
+            data: {booktype: '', bookName: ''},
             success: function (ss) {
                 ss.forEach(function (item, index, array) {
-                    var $bookid = $('<td>').html(item.bookid);
+                    var $bookID = $('<td>').html(item.bookID);
+                    var $bookName = $('<td>').html(item.bookName);
                     var $booktype = $('<td>').html(item.booktype);
-                    var $bookimg = $('<td>').html(item.bookimg);
-                    var $booknum = $('<td>').html(item.booknum);
-                    var $bookname = $('<td>').html(item.bookname);
+                    var $bookWR = $('<td>').html(item.bookWR);
+                    var $bookPress=$('<td>').html(item.bookPress);
+                    var $bookNum = $('<td>').html(item.bookNum);
                     var $booktd = $('<td>');
                     var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('编辑');
                     var $btndele = $('<button>').addClass('btn btn-xs btn-danger').html('删除');
                     $booktd.append($bookbtn, $btndele);
                     var $tRow = $('<tr>');
-                    $tRow.append($bookid, $booktype, $bookimg, $booknum, $bookname, $booktd);
+                    $tRow.append($bookID, $bookName, $booktype, $bookWR, $bookPress,$bookNum,  $booktd);
                     $booktableSearch.append($tRow);
                 });
             }
@@ -252,19 +258,17 @@ $('documnet').ready(function () {
             datatype: 'json',
             success: function (data) {
                 //这里返回的数组是个二维数组。。。。。。
-                console.log(data[0].bookid);
-                console.log(data[0].bookimg);
-                var $bookid = $('<td>').html(data[0].bookid);
+                var $bookID = $('<td>').html(data[0].bookID);
+                var $bookName = $('<td>').html(data[0].bookName);
                 var $booktype = $('<td>').html(data[0].booktype);
-                var $bookimg = $('<td>').html(data[0].bookimg);
-                var $booknum = $('<td>').html(data[0].booknum);
-                var $bookname = $('<td>').html(data[0].bookname);
+                var $bookWR = $('<td>').html(data[0].bookWR);
+                var $bookPress = $('<td>').html(data[0].bookPress);
+                var $bookNum = $('<td>').html(data[0].bookNum);
                 var $booktd = $('<td>');
                 var $bookbtn = $('<button>').addClass('btn btn-success').html('添加成功');
                 $booktd.append($bookbtn);
-
                 var $tRow = $('<tr>');
-                $tRow.append($bookid, $booktype, $bookimg, $booknum, $bookname, $booktd);
+                $tRow.append($bookID, $bookName, $booktype, $bookWR, $bookPress, $bookNum,   $booktd);
                 $bookTableNew.append($tRow);
             }
 
@@ -287,7 +291,7 @@ function refreshbooks(type, page) { //获取数据
         url: 'getbooks.php',
         type: 'POST',
         datatype: 'json',
-        data: { booktype: type, bookname:'',pageNum: page - 1 },
+        data: { booktype: type, bookName:'',pageNum: page - 1 },
         beforeSend: function() {
             $("#list tbody").append("<td id='loading'>loading...</td>");
         },
@@ -304,20 +308,20 @@ function refreshbooks(type, page) { //获取数据
                 var $a = $('<a></a>').attr('href', '#').appendTo($td);/*改变属性*/
                         $('<img>').attr('height', 200);
                         $('<img>').attr('width', 200);
-                var $img = $('<img>').attr('src', item.bookimg).addClass('width',20).addClass('height',20).appendTo($a);/*这里是改变图片的属性*/
+                var $img = $('<img>').attr('src', item.bookWR).addClass('width',20).addClass('height',20).appendTo($a);/*这里是改变图片的属性*/
 
 
 
                 var $td = $('<td>').appendTo($list);
                 var $p = $('<p></p>').html('剩余数目为').appendTo($td);/*前面的内容附加到后面*/
-                var $i = $('<i></i>').html(item.booknum).appendTo($p);
+                var $i = $('<i></i>').html(item.bookNum).appendTo($p);
 
                 var $td = $('<td>').appendTo($list);
                 var $name = $('<p></p>').html('书名').appendTo($td);
                 var $i2 = $('<i></i>').html(item.booktype).appendTo($name);
-                console.log(item.bookname);
+                console.log(item.bookName);
                 console.log(item.booktype);
-                console.log(item.bookid);
+                console.log(item.bookID);
                 //.log($('<p></p>').html('haha'));
             });
         },
