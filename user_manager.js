@@ -49,4 +49,51 @@ $('documnet').ready(function () {
         }
     });
 
+    $('#submitReturn').click(function (e) {
+        console.log("归还");
+        e.preventDefault();
+        //输入判断
+        if ($('#bookIdReturn').val() === "" || $('#studentIdReturn').val() === ""||$('#dateReturn').val()==="")
+        {
+            if ($('#bookIdReturn').val() === "") {
+                $('#bookIdReturn').parent().addClass('has-error');
+            } else {
+                $('#bookIdReturn').parent().removeClass('has-error');
+            }
+            if ($('#studentIdReturn').val() === "") {
+                $('#studentIdReturn').parent().addClass('has-error');
+            } else {
+                $('#studentIdReturn').parent().removeClass('has-error');
+            }
+            if ($('#dateReturn').val() === "") {
+                $('#dateReturn').parent().addClass('has-error');
+            } else {
+                $('#dateReturn').parent().removeClass('has-error');
+            }
+        }
+        else {
+            console.log($('#dateReturn').val());
+
+            var jsonBookReturn = {
+                studentIdReturn: $('#studentIdReturn').val(),
+                bookIdReturn: $('#bookIdReturn').val(),
+                dateReturn: $('#dateReturn').val(),
+                isbo: 0
+            };
+
+            console.log(jsonBookReturn);
+            //提交添加的新闻
+            $.ajax({
+                url: 'returnborrow.php',
+                type: 'post',
+                data: jsonBookReturn,
+                datatype: 'json',
+                success: function (data) {
+                    console.log(data);
+                    //刷新页面
+                    showinsertTable();
+                }
+            });
+        }
+    });
 });

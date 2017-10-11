@@ -382,10 +382,9 @@
             </div>
             <!--学生的信息结束-->
 
-            <!--借阅和归还-->
+            <!--借阅登记-->
             <div class="container">
                 <div class="row">
-                    <div>
                         <div class="col-md-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading" >借阅填写</div>
@@ -400,7 +399,7 @@
                                             <input type="text" id="bookIdBorrow" placeholder="8-digital">
                                         </div>
                                         <div class="form-group">
-                                            <label for="dateBorrow">借阅日期</label>
+                                            <label for="dateBorrow">日期</label>
                                             <input type="date" id="dateBorrow" placeholder="9－digital">
                                         </div>
                                         <button type="button" class="btn-success" id="submitBorrow">提交</button>
@@ -408,8 +407,41 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-md-8">
+                        　<div class="panel panel-info">
+                            <div class="panel-heading">
+                                借阅记录
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-stripted">
+                                    <!--图书借阅成功-->
+                                    <thead>
+                                    <tr>
+                                        <th>学号</th>
+                                        <th>书籍</th>
+                                        <th>时间</th>
+                                        <th>状态</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>2014217133</td>
+                                        <td>刘之类</td>
+                                        <td>1111</td>
+                                        <td>高数</td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="4"><p>Are you OK?</p></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
                 </div>
+
             </div>
             <!--归还登记-->
             <div class="container">
@@ -420,17 +452,54 @@
                             <div class="panel-body">
                                 <form>
                                     <div class="form-group">
+                                        <label for="studentIdReturn">输入学生的学号</label>
+                                        <input type="text" id="studentIdReturn" placeholder="9－digital">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="bookIdReturn">输入书籍的id</label>
                                         <input type="text" id="bookIdReturn" placeholder="8-digital">
                                     </div>
                                     <div class="form-group">
-                                        <label for="studentIdReturn">输入学生的学号</label>
-                                        <input type="text" id="studentIdReturn" placeholder="9－digital">
+                                        <label for="dateReturn">日期</label>
+                                        <input type="date" id="dateReturn">
                                     </div>
                                     <button type="button" class="btn-success" id="submitReturn">提交</button>
                                 </form>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-8">
+                        　<div class="panel panel-info">
+                        <div class="panel-heading">
+                            借阅记录
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-stripted">
+                                <!--图书借阅成功-->
+                                <thead>
+                                <tr>
+                                    <th>学号</th>
+                                    <th>书籍</th>
+                                    <th>时间</th>
+                                    <th>状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>2014217133</td>
+                                    <td>刘之类</td>
+                                    <td>1111</td>
+                                    <td>高数</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="4"><p>Are you OK?</p></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

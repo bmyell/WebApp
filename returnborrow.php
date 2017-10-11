@@ -20,6 +20,18 @@ if($link){
         echo json_encode(array('success'=>'yes'));
     }
 
+    if($_POST['isbo']==false)
+    {
+        $studentIdReturn=$_POST['studentIdReturn'];
+        $bookIdReturn=$_POST['bookIdReturn'];
+        $dateReturn=$_POST['dateReturn'];
+
+        $sql="INSERT INTO ret_inf(userID,bookID,ret_date)VALUES('{$studentIdReturn}','{$bookIdReturn}','{$dateReturn}') ";
+        mysqli_query($link,'SET NameS utf8');
+        mysqli_query($link,$sql);
+        echo json_encode(array('success'=>'yes'));
+    }
+
 }else{
     echo json_encode(array('连接信息'=>'连接失败'));
 }
