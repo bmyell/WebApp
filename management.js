@@ -62,10 +62,11 @@ $('documnet').ready(function () {
     var deleteId = null;
     $booktableSearch.on('click', '.btn-danger', function (e) {
         $('#deleModal').modal('show');
-        deleteId = ($(this).parent().prevAll().eq(4).html());
+        deleteId = ($(this).parent().prevAll().eq(5).html());
         console.log(deleteId);
     });
     $('#deleModal #confirmDelete').click(function (e) {
+        console.log("哈哈");
         if (deleteId) {
             $.ajax({
                 url: 'delete.php',
@@ -74,8 +75,7 @@ $('documnet').ready(function () {
                 success: function (data) {
                     console.log(data);
                     $('#deleModal').modal('hide');
-                    refreshBook();
-
+                    refreshtablesearch();
                 }
             });
         }
@@ -107,7 +107,7 @@ $('documnet').ready(function () {
                 booktype: $('#ubooktype').val(),
                 bookWR: $('#ubookWR').val(),
                 bookNum: $('#ubookNum').val(),
-                bookName: $('bookName').val(),
+                bookName: $('ubookName').val(),
                 bookID: updateId
             },
             success: function (data) {

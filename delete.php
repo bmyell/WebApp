@@ -1,11 +1,11 @@
 <?php
 header("Content-type:application/json;charset=UTF-8");
 
-$link=mysqli_connect('localhost','root','root','library','3306');
+$link=mysqli_connect('127.0.0.1','root','root','library','3306');
 if($link){
-	$bookid= $_POST['bookid'];
+	$bookid= $_POST['bookID'];
 	mysqli_query($link,'SET NAMES utf8');
-	$sql="DELETE FROM books WHERE `books`.`bookid`={$bookid}";
+	$sql="DELETE FROM book_inf WHERE `book_inf`.`bookID`='{$bookid}'";
 	mysqli_query($link,$sql);
 	 echo json_encode(array('删除状态'=>'成功'));
 }

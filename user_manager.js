@@ -98,7 +98,6 @@ $('documnet').ready(function () {
     /*读者借阅查询*/
     var    $studentBorrowBook =  $('#studentBorrowBook').find('tbody');
     $('#student_borrow_info').click(function (e) {
-        console.log("读者借阅查询");
         e.preventDefault();
         //输入判断
         if ($('#studentid').val() === "") {
@@ -139,4 +138,35 @@ $('documnet').ready(function () {
             });
         }
     });
+
+
+    /*读者注销*/
+    $('#stuIdDele').click(function (e) {
+        e.preventDefault();
+        //输入判断
+        if ($('#stuId').val() === "") {
+
+            if ($('#stuId').val() === "") {
+                $('#stuId').parent().addClass('has-error');
+            } else {
+                $('#stuId').parent().removeClass('has-error');
+            }
+        }
+        else {
+            var jsonstuDele = {
+                stuIdDele: $('#stuId').val(),
+                delete: 1
+            };
+            $.ajax({
+                url: 'getusers.php',
+                type: 'post',
+                data: jsonstuDele,
+                datatype: 'json',
+                success: function (data) {
+                            console.log(data);
+                    }
+            });
+        }
+    });
+
 });
