@@ -4,8 +4,7 @@ $('documnet').ready(function () {
     $('#submitBorrow').click(function (e) {
         e.preventDefault();
         //输入判断
-        if ($('#bookIdBorrow').val() === "" || $('#studentIdBorrow').val() === ""||$('#dateBorrow').val()==="")
-        {
+        if ($('#bookIdBorrow').val() === "" || $('#studentIdBorrow').val() === "" || $('#dateBorrow').val() === "") {
             if ($('#bookIdBorrow').val() === "") {
                 $('#bookIdBorrow').parent().addClass('has-error');
             } else {
@@ -48,13 +47,12 @@ $('documnet').ready(function () {
             });
         }
     });
-
+    /*对归还进行登记*/
     $('#submitReturn').click(function (e) {
         console.log("归还");
         e.preventDefault();
         //输入判断
-        if ($('#bookIdReturn').val() === "" || $('#studentIdReturn').val() === ""||$('#dateReturn').val()==="")
-        {
+        if ($('#bookIdReturn').val() === "" || $('#studentIdReturn').val() === "" || $('#dateReturn').val() === "") {
             if ($('#bookIdReturn').val() === "") {
                 $('#bookIdReturn').parent().addClass('has-error');
             } else {
@@ -93,6 +91,51 @@ $('documnet').ready(function () {
                     //刷新页面
                     showinsertTable();
                 }
+            });
+        }
+    });
+
+    /*读者借阅查询*/
+    var    $studentBorrowBook =  $('#studentBorrowBook').find('tbody');
+    $('#student_borrow_info').click(function (e) {
+        console.log("读者借阅查询");
+        e.preventDefault();
+        //输入判断
+        if ($('#studentid').val() === "") {
+
+            if ($('#studentid').val() === "") {
+                $('#studentid').parent().addClass('has-error');
+            } else {
+                $('#studentid').parent().removeClass('has-error');
+            }
+        }
+        else {
+            console.log($('#dateReturn').val());
+
+            var jsonstudentID = {
+                studentid: $('#studentid').val(),
+                chechstu: 1
+            };
+            $.ajax({
+                url: 'getusers.php',
+                type: 'post',
+                data: jsonstudentID,
+                datatype: 'json',
+                success: function (data) {
+                       console.log(data);
+                        data.forEach(function (item, index, array) {
+                            var $studentID=$('<td>').html($('#studentid').val());
+                            var $userName=$('<td>').html(item.userName);
+                            var $bookID = $('<td>').html(item.bookID);
+                            var $bookName = $('<td>').html(item.bookName);
+                            var $booktype = $('<td>').html(item.booktype);
+                            var $booktd = $('<td>');
+                            var $tRow = $('<tr>');
+                            $tRow.append($studentID,$userName,$bookID, $bookName, $booktype);
+                            $studentBorrowBook.append($tRow);
+                        });
+                    }
+
             });
         }
     });
