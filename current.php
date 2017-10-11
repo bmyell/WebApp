@@ -3,18 +3,20 @@ header("Content-type:application/json;charset=UTF-8");
 
 $link=mysqli_connect('127.0.0.1','root','root','library','3306');
 if($link){
-	$bookid=$_GET['bookid'];
+	$bookid=$_GET['bookID'];
 	mysqli_query($link,'SET NAMES utf8');
-	$sql="SELECT * FROM books WHERE `bookid`='{$bookid}'";
-	  $result= mysqli_query($link,$sql);
-	  $senddata=array();
-  	while($row=mysqli_fetch_assoc($result)){
+	$sql="SELECT * FROM book_inf WHERE `bookID`='{$bookid}'";
+
+    $result= mysqli_query($link,$sql);
+    $senddata=array();
+    while($row=mysqli_fetch_assoc($result)){
   		array_push($senddata, array(
-  			       'bookid'=>$row['bookid'],
+  			       'bookID'=>$row['bookID'],
   			       'booktype'=>$row['booktype'],
-  			       'bookimg'=>$row['bookimg'],
-  			       'booknum'=>$row['booknum'],
-               'bookname'=>$row['bookname']
+  			       'bookWR'=>$row['bookWR'],
+  			       'bookNum'=>$row['bookNum'],
+                   'bookPress'=>$row['bookPress'],
+                   'bookName'=>$row['bookName']
   			));
  
   }echo json_encode($senddata);

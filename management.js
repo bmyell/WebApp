@@ -84,18 +84,22 @@ $('documnet').ready(function () {
     var updateId = null;
     $booktableSearch.on('click', '.btn-primary', function (e) {
         $('#updateModal').modal('show');
-        updateId = $(this).parent().prevAll().eq(4).html();
+        updateId = $(this).parent().prevAll().eq(5).html();
+        console.log(updateId);
         $.ajax({
             url: 'current.php',
             type: 'get',
             datatype: 'json',
             data: {bookID: updateId},
-            success: function (data) {
-                // $('#ubookID').val(data[0].bookID)
+            success: function (data)
+            {   console.log(data);
+                $('#ubookid').val(data[0].bookID);
                 $('#ubooktype').val(data[0].booktype);
-                $('#ubookWR').val(data[0].bookWR);
-                $('#ubookNum').val(data[0].bookNum);
-                $('#ubookName').val(data[0].bookName);
+                $('#ubookwr').val(data[0].bookWR);
+                $('#ubooknum').val(data[0].bookNum);
+                $('#ubookname').val(data[0].bookName);
+                $('#ubookpress').val(data[0].bookPress);
+
             }
         });
     });
@@ -105,9 +109,10 @@ $('documnet').ready(function () {
             type: 'post',
             data: {
                 booktype: $('#ubooktype').val(),
-                bookWR: $('#ubookWR').val(),
-                bookNum: $('#ubookNum').val(),
-                bookName: $('ubookName').val(),
+                bookWR: $('#ubookwr').val(),
+                bookNum: $('#ubooknum').val(),
+                bookName: $('ubookname').val(),
+                bookPress: $('ubookpress').val(),
                 bookID: updateId
             },
             success: function (data) {
