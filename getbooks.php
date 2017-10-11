@@ -1,6 +1,9 @@
 <?php
 header("Content-type:application/json;charset=UTF-8");
 
+include 'ChromePhp.php';
+
+
 $link = mysqli_connect('127.0.0.1', 'root', 'root', 'library', '3306');
 if ($link) {//执行成功的过程
     if ($_POST['booktype']) {
@@ -26,7 +29,9 @@ if ($link) {//执行成功的过程
 
         }
         echo json_encode($arr);
-    } else if ($_POST['bookname']) {
+    }
+
+    else if ($_POST['bookname']) {
         $bookname = $_POST['bookname'];
         $page = intval($_POST['pageNum']);
         $sql = "SELECT bookid FROM  books WHERE `bookname` LIKE '%" . $_POST['bookname'] . "%'";
@@ -39,13 +44,18 @@ if ($link) {//执行成功的过程
         $arr['total'] = $total;
         $arr['pageSize'] = $pageSize;
         $arr['totalPage'] = $totalPage;
-        $query = mysqli_query($link, "SELECT * FROM  books WHERE `bookname` LIKE '%" . $_POST['bookname'] . "%' order by bookid asc limit $startPage,$pageSize");
+        //$query = mysqli_query($link, "SELECT * FROM  books WHERE `bookname` LIKE '%" . $_POST['bookname'] . "%' order by bookid asc limit $startPage,$pageSize");
+        $query = mysqli_query($link, "SELECT * FROM  book_inf WHERE bookName ='{$bookname}'");
+
+        ChromePhp::log($query);
         while ($row = mysqli_fetch_assoc($query)) {
             $arr['list'][] = array(
-                'bookid' => $row['bookid'],
-                'bookimg' => $row['bookimg'],
-                'booknum' => $row['booknum'],
-                'bookname' => $row['bookname']
+                'bookID' => $row['bookID'],
+                'bookPress' => $row['bookPress'],
+                'bookName' => $row['bookName'],
+                'booktype' => $row['booktype'],
+                'bookNum' => $row['bookNum'],
+                'bookName' => $row['bookName'],
             );
         }
         echo json_encode($arr);

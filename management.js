@@ -92,14 +92,14 @@ $('documnet').ready(function () {
             datatype: 'json',
             data: {bookID: updateId},
             success: function (data)
-            {   console.log(data);
+            {
+                console.log(data);
                 $('#ubookid').val(data[0].bookID);
                 $('#ubooktype').val(data[0].booktype);
                 $('#ubookwr').val(data[0].bookWR);
                 $('#ubooknum').val(data[0].bookNum);
                 $('#ubookname').val(data[0].bookName);
                 $('#ubookpress').val(data[0].bookPress);
-
             }
         });
     });
@@ -111,14 +111,14 @@ $('documnet').ready(function () {
                 booktype: $('#ubooktype').val(),
                 bookWR: $('#ubookwr').val(),
                 bookNum: $('#ubooknum').val(),
-                bookName: $('ubookname').val(),
-                bookPress: $('ubookpress').val(),
+                bookName: $('#ubookname').val(),
+                bookPress: $('#ubookpress').val(),
                 bookID: updateId
             },
             success: function (data) {
                 console.log(data);
                 $('#updateModal').modal('hide');
-                refreshBook();
+                refreshtablesearch();
             }
 
         });
@@ -145,6 +145,133 @@ $('documnet').ready(function () {
         }
     );
 
+
+    /*对书进行个检索*/
+    $('#btnsubmitSearch').click(
+        function (e) {
+            if($('#booknameSearch').val()!==""){
+
+                $.ajax({
+                        url: 'searchbook.php',
+                        type: 'post',
+                        data: {bookname: $('#booknameSearch').val()},
+                    success: function (ss) {
+                            $booktableSearch.empty();
+                        ss.forEach(function (item, index, array) {
+                            var $bookID = $('<td>').html(item.bookID);
+                            var $bookName = $('<td>').html(item.bookName);
+                            var $booktype = $('<td>').html(item.booktype);
+                            var $bookWR = $('<td>').html(item.bookWR);
+                            var $bookPress=$('<td>').html(item.bookPress);
+                            var $bookNum = $('<td>').html(item.bookNum);
+                            var $booktd = $('<td>');
+                            var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('编辑');
+                            var $btndele = $('<button>').addClass('btn btn-xs btn-danger').html('删除');
+                            $booktd.append($bookbtn, $btndele);
+                            var $tRow = $('<tr>');
+                            $tRow.append($bookID, $bookName, $booktype, $bookWR, $bookPress,$bookNum,  $booktd);
+                            $booktableSearch.append($tRow);
+                        });
+                    }
+                    }
+                );
+
+            }
+
+            else if($('#booktypeSearch').val()!==""&& $('#booktypeSearch').val()!=="全部书籍")
+            {
+                $.ajax({
+                        url: 'searchbook.php',
+                        type: 'post',
+                        data: {booktype: $('#booktypeSearch').val()},
+                    success: function (ss) {
+                            $booktableSearch.empty();
+                        ss.forEach(function (item, index, array) {
+                            var $bookID = $('<td>').html(item.bookID);
+                            var $bookName = $('<td>').html(item.bookName);
+                            var $booktype = $('<td>').html(item.booktype);
+                            var $bookWR = $('<td>').html(item.bookWR);
+                            var $bookPress=$('<td>').html(item.bookPress);
+                            var $bookNum = $('<td>').html(item.bookNum);
+                            var $booktd = $('<td>');
+                            var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('编辑');
+                            var $btndele = $('<button>').addClass('btn btn-xs btn-danger').html('删除');
+                            $booktd.append($bookbtn, $btndele);
+                            var $tRow = $('<tr>');
+                            $tRow.append($bookID, $bookName, $booktype, $bookWR, $bookPress,$bookNum,  $booktd);
+                            $booktableSearch.append($tRow);
+                        });
+                    }
+                    }
+                );
+
+            }
+
+            else if($('#bookauthorSearch').val()!==""){
+                $.ajax({
+                        url: 'searchbook.php',
+                        type: 'post',
+                        data: {bookwr: $('#bookauthorSearch').val()},
+                        success: function (ss) {
+                            $booktableSearch.empty();
+                            ss.forEach(function (item, index, array) {
+                                var $bookID = $('<td>').html(item.bookID);
+                                var $bookName = $('<td>').html(item.bookName);
+                                var $booktype = $('<td>').html(item.booktype);
+                                var $bookWR = $('<td>').html(item.bookWR);
+                                var $bookPress=$('<td>').html(item.bookPress);
+                                var $bookNum = $('<td>').html(item.bookNum);
+                                var $booktd = $('<td>');
+                                var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('编辑');
+                                var $btndele = $('<button>').addClass('btn btn-xs btn-danger').html('删除');
+                                $booktd.append($bookbtn, $btndele);
+                                var $tRow = $('<tr>');
+                                $tRow.append($bookID, $bookName, $booktype, $bookWR, $bookPress,$bookNum,  $booktd);
+                                $booktableSearch.append($tRow);
+                            });
+                        }
+                    }
+                );
+
+            }
+
+            else if($('#bookpressSearch').val()!==""){
+                $.ajax({
+                        url: 'searchbook.php',
+                        type: 'post',
+                        data: {bookpress: $('#bookpressSearch').val()},
+                        success: function (ss) {
+                            $booktableSearch.empty();
+                            ss.forEach(function (item, index, array) {
+                                var $bookID = $('<td>').html(item.bookID);
+                                var $bookName = $('<td>').html(item.bookName);
+                                var $booktype = $('<td>').html(item.booktype);
+                                var $bookWR = $('<td>').html(item.bookWR);
+                                var $bookPress=$('<td>').html(item.bookPress);
+                                var $bookNum = $('<td>').html(item.bookNum);
+                                var $booktd = $('<td>');
+                                var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('编辑');
+                                var $btndele = $('<button>').addClass('btn btn-xs btn-danger').html('删除');
+                                $booktd.append($bookbtn, $btndele);
+                                var $tRow = $('<tr>');
+                                $tRow.append($bookID, $bookName, $booktype, $bookWR, $bookPress,$bookNum,  $booktd);
+                                $booktableSearch.append($tRow);
+                            });
+                        }
+                    }
+                );
+
+            }
+
+            else if($('#bookpressSearch').val()==="" &&
+                $('#bookauthorSearch').val()==="" &&
+                $('#booknameSearch').val()==="")
+            {
+                refreshtablesearch();
+            }
+
+        }
+    );
 
     /*第二个插入版本，这个需要先插后面再显示*/
     $('#btnshowlastbook').click(function (e) {

@@ -5,6 +5,7 @@
     <title>合肥工业大学图书馆</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="bootstrap/img/favicon.ico">
     <!--为了使导航条一直在顶部，而且不对下面的内容产生影响 导航条默认宽度是50-->
     <style>
         body {
@@ -18,7 +19,7 @@
     <div>
         <!--这里做一个导航条-->
         <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-            <div class="container"> <!--container-fluied-->
+            <div class="container">
                 <div class="navbar-header">
                     <!--这里这个button的作用是网页缩小的时候，导航条可以缩成 三-->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -70,10 +71,15 @@
     <!-- 图片背景-->
     <div class="container ">
         <div class="row clearfix">
-            <div>
+            <div class="col-md-3">
                 <img src="bootstrap/img/logo.png">
-                <span>开馆时间:
-                     <br>周一至周日: 8:00-22:00
+            </div>
+            <div class="col-md-3 col-md-offset-3">
+                    <br/>
+                <span>
+                    开馆时间:
+                     <br/>
+                     <br/>周一至周日: 8:00-22:00
                 </span>
             </div>
         </div>
@@ -83,9 +89,8 @@
     <!--搜索框部分-->
     <div class="container">
         <ul class="nav nav-tabs" role="tablist">
-            <li><a href="#" role="tab" data-toggle="tab">教材教辅</a></li>
-            <li><a href="#" role="tab" data-toggle="tab">热门书籍</a></li>
-            <li><a href="#" role="tab" data-toggle="tab">语言文学</a></li>
+            <li><a href="#" role="tab" data-toggle="tab">专业书籍</a></li>
+            <li><a href="#" role="tab" data-toggle="tab">历史书籍</a></li>
             <li><a href="#" role="tab" data-toggle="tab">哲学理论</a></li>
             <li><a href="#" role="tab" data-toggle="tab">计算机</a></li>
         </ul>
@@ -233,29 +238,12 @@
             </p>
         </div>
     </div>
+
+    <footer>
+        @lzl<span>shijian</span>
+    </footer>
 </div>
 
-
-<div>
-    <!--实现一个标签tab-->
-    <div class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
-        <li><a href="#prof" role="tab" data-toggle="tab">prof</a></li>
-        <li><a href="#about" role="tab" data-toggle="tab">about</a></li>
-        <li><a href="#me" role="tab" data-toggle="tab">Me</a></li>
-    </div>
-    <div class="tab-content">
-        <div class="tab-pane active" id="home"></div>
-        <div class="tab-pane" id="prof"></div>
-        <div class="tab-pane" id="about"></div>
-        <div class="tab-pane" id="me"></div>
-    </div>
-</div>
-
-
-<footer>
-    @lzl<span>shijian</span>
-</footer>
 <!--放脚本的地方-->
 <script rel="script" src="bootstrap/js/admin.js"></script>
 <script rel="script" src="bootstrap/js/jquery-3.2.1.min.js"></script>
