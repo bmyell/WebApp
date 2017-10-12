@@ -2,7 +2,7 @@
 
 $('documnet').ready(function () {
     // language=JQuery-CSS
-    var $usrid="201421714";
+    var $usrid="201421720";
     /*用户表*/
     var $self_info_table = $('#self_info_table tbody');
 
@@ -18,16 +18,18 @@ $('documnet').ready(function () {
             datatype: 'json',
             data: {userid: $usrid, self_inf:0},
             success: function (ss) {
-                console.log(ss[0].bookID);
-                var $bookID = $('<td>').html(ss[0].bookID);
-                var $booktype = $('<td>').html(ss[0].booktype);
-                var $bookWR = $('<td>').html(ss[0].bookWR);
-                var $bookPress = $('<td>').html(ss[0].bookPress);
-                var $bookName = $('<td>').html(ss[0].bookName);
-                var $borr_date = $('<td>').html(ss[0].borr_date);
-                var $tRow = $('<tr>');
-                $tRow.append($bookID, $bookName,$booktype, $bookWR, $bookPress,$borr_date);
-                $stu_bro_info.append($tRow);
+
+                ss.forEach(function (item, index, array) {
+                    var $bookID = $('<td>').html(item.bookID);
+                    var $bookName = $('<td>').html(item.bookName);
+                    var $booktype = $('<td>').html(item.booktype);
+                    var $bookWR = $('<td>').html(item.bookWR);
+                    var $bookPress=$('<td>').html(item.bookPress);
+                    var $borr_date = $('<td>').html(ss[0].borr_date);
+                    var $tRow = $('<tr>');
+                    $tRow.append($bookID, $bookName, $booktype, $bookWR, $bookPress,$borr_date);
+                    $stu_bro_info.append($tRow);
+                });
             }
         });
     }

@@ -12,6 +12,14 @@
             padding-top: 70px;
         }
     </style>
+
+    <script type="text/javascript">
+            function display_alert()
+            {
+                alert("借书请联系管理员")
+            }
+
+    </script>
 </head>
 
 <body>
@@ -20,6 +28,8 @@
         <!--这里做一个导航条-->
         <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
             <div class="container">
+
+
                 <div class="navbar-header">
                     <!--这里这个button的作用是网页缩小的时候，导航条可以缩成 三-->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -41,25 +51,12 @@
                     <ul class="nav navbar-nav">
                         <!--导航内容-->
                         <li class="active"><a href="http://www.hfut.edu.cn/ch/">工大主页</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span
-                                class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Windows</a></li>
-                                <li><a href="#">Linux</a></li>
-                                <li><a href="#">Sybian</a></li>
-                                <!--在下拉菜单里面实现了分割-->
-                                <li class="divider"></li>
-                                <li><a href="#">hahhah</a></li>
-                            </ul>
-                        </li>
-
                         <!--登录注册等模块-->
                         <li class="pull-right"><a href="./login.html" class="pull-right">登录</a></li>
                         <li>|
                         <li>
                         <li class="pull-right"><a href="./register.html" class="pull-right">注册</a></li>
-                        <li><a href="#">关于</a></li>
+                        <li><a href="" onclick="display_alert()">关于</a></li>
 
                     </ul>
                 </div>
@@ -88,165 +85,40 @@
 
     <!--搜索框部分-->
     <div class="container">
-        <ul class="nav nav-tabs" role="tablist">
-            <li><a href="#" role="tab" data-toggle="tab">专业书籍</a></li>
-            <li><a href="#" role="tab" data-toggle="tab">历史书籍</a></li>
-            <li><a href="#" role="tab" data-toggle="tab">哲学理论</a></li>
-            <li><a href="#" role="tab" data-toggle="tab">计算机</a></li>
-        </ul>
         <form class="form-search">
-            <input class="input-lg search-query" type="text"/>
-            <button type="submit" class="btn">查找</button>
+            <input class="input-lg search-query" id="serachbook" type="text"/>
+            <button type="submit" class="btn" id="search">查找</button>
         </form>
-    </div>
     </div>
 </header>
 
 <div class="container">
     <div class="row clearfix">
-        <div class="col-md-12 column">
-            <table class="table">
+        <div class="col-md-8 column">
+            <table class="table" id="booktableindex">
                 <thead>
                 <tr>
-                    <th>
-                        编号
-                    </th>
-                    <th>
-                        产品
-                    </th>
-                    <th>
-                        交付时间
-                    </th>
-                    <th>
-                        状态
-                    </th>
+                    <th>id</th>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>作者</th>
+                    <th>出版社</th>
+                    <th>剩余数量</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Default
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Approved
-                    </td>
-                </tr>
-                <tr class="error">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                </tr>
-                <tr class="info">
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        04/04/2012
-                    </td>
-                    <td>
-                        Call in to confirm
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="row clearfix">
-        <div class="col-md-4 column">
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column">
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column">
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-    </div>
 
-    <footer>
-        @lzl<span>shijian</span>
-    </footer>
+
+
 </div>
 
 <!--放脚本的地方-->
-<script rel="script" src="bootstrap/js/admin.js"></script>
 <script rel="script" src="bootstrap/js/jquery-3.2.1.min.js"></script>
 <script rel="script" src="bootstrap/js/bootstrap.min.js"></script>
+<script rel="script" src="index.js"></script>
 </body>
 </html>

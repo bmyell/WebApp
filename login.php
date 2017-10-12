@@ -2,7 +2,6 @@
 // 创建连接
 include "ChromePhp.php";
 header("Content-type:application/json;charset=UTF-8");
-include "ChromePhp.php";
 $dbhost = '127.0.0.1';  // mysql服务器主机地址
 $dbuser = 'root';            // mysql用户名
 $dbpass = 'root';          // mysql用户名密码
@@ -27,27 +26,20 @@ if(! $conn )
          {
              if($password == $row['userPD'])
              {
-
-                 //跳转，或者在
                  echo json_encode(array('success'=>'yes'));
-
-                // header("Location: $url");
              }
              else
              {
-
                  echo json_encode(array('success'=>'no'));
              }
          }
          else {
-
              echo json_encode(array('success'=>'no'));
          }
      }
 
      if($_POST['option']=='teacher')
      {
-         ChromePhp::log("姥姥啊");
          $username=isset($_POST['username']) ? trim($_POST['username']):'';
          $password=isset($_POST['password']) ? trim($_POST['password']):'';
          $sql = "select * from manager_inf where M_name ='{$username}' ";

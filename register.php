@@ -18,6 +18,7 @@ if ($link) {
     mysqli_query($link, 'SET NameS utf8');
     $sql = "INSERT INTO user_inf (userID, username, userPD, Grade,Class,E_mailAD) 
     VALUES ('{$school_id}','{$username}','{$password}','{$grade}','{$class}','{$email}')";
+
     $result=mysqli_query($link, $sql);
     if($result)
     {

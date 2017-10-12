@@ -33,7 +33,6 @@ $('documnet').ready(function () {
                 console.log("我是学生");
                 // 这里修改跳转到学生登录的界面
                 var loginin = {
-                    // bookid: $('#bookid').val(),
                     username: $('#username').val(),
                     password: $('#password').val(),
                     option: 'student'
@@ -45,26 +44,20 @@ $('documnet').ready(function () {
                     data: loginin,
                     datatype: 'json',
                     success: function(ss) {
-                        if(ss.substring(12,13)=="y")
+                        var $str = JSON.stringify(ss);
+                        var $result=$str.substring(12,13);
+
+                        if($result=="y")
                         {
-                            console.log("nimabi");
                             window.location="user.html";
                         }
 
-                        if(ss.substring(12,13)=="n")
+                        if($result=="n")
                         {
-                            console.log("hahahaha");
                             alert("登录失败 检查用户名或密码");
-                            $('#username').empty();
-                            $('#password').empty();
-
                         }
-
-
                     }
                 });
-
-
             }
             else if(option=="teacher"){
                 /*老师*/
@@ -81,38 +74,20 @@ $('documnet').ready(function () {
                     data: loginin,
                     datatype: 'json',
                     success: function(ss) {
-                        if(ss.substring(12,13)=="y")
+                        var $str = JSON.stringify(ss);
+                        var $result=$str.substring(12,13);
+                        if($result=="y")
                         {
-                            console.log("nimabi");
                             window.location="management.html";
                         }
-
-                        if(ss.substring(12,13)=="n")
+                        if($result=="n")
                         {
-                            console.log("hahahaha");
                             alert("登录失败 检查用户名或密码");
-                            $('#username').empty();
-                            $('#password').empty();
-
                         }
-
-
                     }
                 });
 
-
             }
-
-
-
-
-
-
-
-
-            //提交添加的新闻
-            /*ajax异步加载使用*/
-
         }
     });
     /*注册*/
@@ -160,7 +135,6 @@ $('documnet').ready(function () {
         }
 
         else {
-                console.log("我是学生");
                 var loginup = {
                     username: $('#username').val(),
                     password: $('#password').val(),
@@ -176,25 +150,19 @@ $('documnet').ready(function () {
                     data: loginup,
                     datatype: 'json',
                     success: function(D) {
-                        console.log(D);
+                        var $str = JSON.stringify(D);
+                        var $result=$str.substring(12,13);
 
-                        if(D.substring(12,13) =="y")
+                        if($result=="y")
                         {
-                            console.log("nimabi");
                             window.location="login.html";
                         }
-                        if(D.substring(12,13)=="n")
+                        if($result=="n")
                         {
-                            console.log("hahahaha");
                             alert("注册失败 检查用户名或密码");
-                            $('#username').empty();
-                            $('#password').empty();
                         }
                     }
                 });
-            //提交添加的新闻
-            /*ajax异步加载使用*/
-
         }
     });
 
