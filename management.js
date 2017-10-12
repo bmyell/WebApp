@@ -1,15 +1,15 @@
 //当打开后台管理界面时清空table
 $('documnet').ready(function () {
     // language=JQuery-CSS
-    var $bookTable = $('#booktable tbody');
+    var $bookTable = $('#booktable tbody');  /*基本表*/
 
-    var $bookTableNew = $('#booktableNew tbody');
+    var $bookTableNew = $('#booktableNew tbody');　/*新建表*/
 
-    var $booktableSearch =$('#booktableSearch tbody');
+    var $booktableSearch =$('#booktableSearch tbody'); /*搜索表*/
     //刷新页面
    // refreshBook();
     refreshtablesearch();
-    $('#btnsubmit').click(function (e) {
+   /* $('#btnsubmit').click(function (e) {
         e.preventDefault();
         //输入判断
         if ($('#booktype').val() === "" || $('#bookWR').val() === "" || $('#bookNum').val() === "" || $('#bookName').val() === "") {
@@ -56,7 +56,7 @@ $('documnet').ready(function () {
                 }
             });
         }
-    });
+    });*/
 
     //删除图书的功能
     var deleteId = null;
@@ -66,7 +66,6 @@ $('documnet').ready(function () {
         console.log(deleteId);
     });
     $('#deleModal #confirmDelete').click(function (e) {
-        console.log("哈哈");
         if (deleteId) {
             $.ajax({
                 url: 'delete.php',
@@ -149,13 +148,14 @@ $('documnet').ready(function () {
     /*对书进行个检索*/
     $('#btnsubmitSearch').click(
         function (e) {
+            e.preventDefault();
             if($('#booknameSearch').val()!==""){
-
                 $.ajax({
                         url: 'searchbook.php',
                         type: 'post',
                         data: {bookname: $('#booknameSearch').val()},
                     success: function (ss) {
+                            console.log("开始搜书名了");
                             $booktableSearch.empty();
                         ss.forEach(function (item, index, array) {
                             var $bookID = $('<td>').html(item.bookID);
@@ -328,7 +328,7 @@ $('documnet').ready(function () {
     });
 
     //刷新页面，载入数据
-    function refreshBook() {
+   /* function refreshBook() {
         $bookTable.empty();
         $.ajax({
             url: 'getbooks.php',
@@ -352,7 +352,7 @@ $('documnet').ready(function () {
                 });
             }
         });
-    }
+    }*/
 
     function refreshtablesearch() {
         $booktableSearch.empty();
@@ -407,16 +407,12 @@ $('documnet').ready(function () {
         });
     }
 
-    var booktype;
-    booktype='计算机';
-    refreshbooks(booktype, 1);
-    var curPage = 1; //当前页码
-    var total, pageSize, totalPage;
-    /*分页函数来了*/
+   // refreshbooks(booktype, 1);
 });
 
 
 //刷新页面，载入数据
+/*
 function refreshbooks(type, page) { //获取数据
     var $lists = $('section #list tbody');
     $.ajax({
@@ -435,17 +431,17 @@ function refreshbooks(type, page) { //获取数据
             totalPage = data.totalPage; //总页数
             var list = data.list;
             list.forEach(function(item, index, array) {
-                var $list = $('<td>').prependTo($lists);/*在每个list前面插入('<li></li>')*/
+                var $list = $('<td>').prependTo($lists);/!*在每个list前面插入('<li></li>')*!/
                 var $td = $('<td>').appendTo($list);
-                var $a = $('<a></a>').attr('href', '#').appendTo($td);/*改变属性*/
+                var $a = $('<a></a>').attr('href', '#').appendTo($td);/!*改变属性*!/
                         $('<img>').attr('height', 200);
                         $('<img>').attr('width', 200);
-                var $img = $('<img>').attr('src', item.bookWR).addClass('width',20).addClass('height',20).appendTo($a);/*这里是改变图片的属性*/
+                var $img = $('<img>').attr('src', item.bookWR).addClass('width',20).addClass('height',20).appendTo($a);/!*这里是改变图片的属性*!/
 
 
 
                 var $td = $('<td>').appendTo($list);
-                var $p = $('<p></p>').html('剩余数目为').appendTo($td);/*前面的内容附加到后面*/
+                var $p = $('<p></p>').html('剩余数目为').appendTo($td);/!*前面的内容附加到后面*!/
                 var $i = $('<i></i>').html(item.bookNum).appendTo($p);
 
                 var $td = $('<td>').appendTo($list);
@@ -489,4 +485,4 @@ function getPageBar() {
         pageStr += "<span ><a href='#'  rel='" + (parseInt(curPage) + 1) + "'>下一页</a></span><span ><a href='#' rel='" + totalPage + "'>尾页</a></span>";
     }
     $('#pagecount').html(pageStr);
-}
+}*/

@@ -3,7 +3,7 @@ $('documnet').ready(function () {
     /*对借阅进行登记*/
     var $borrow_table=$('#borrow_table table');
         $borrow_table.append('<td>');
-
+　　/*  对借书进行登记　TODO 需要测试*/
     $('#submitBorrow').click(function (e) {
         e.preventDefault();
         //输入判断
@@ -56,7 +56,7 @@ $('documnet').ready(function () {
             });
         }
     });
-    /*对归还进行登记*/
+    /*对归还进行登记　TODO 需要测试*/
     $('#submitReturn').click(function (e) {
         console.log("归还");
         e.preventDefault();
@@ -104,7 +104,7 @@ $('documnet').ready(function () {
         }
     });
 
-    /*读者借阅查询*/
+    /*读者借阅查询 TODO 测试成功*/
     var $studentBorrowBook =  $('#studentBorrowBook').find('tbody');
     $('#student_borrow_info').click(function (e) {
         e.preventDefault();
@@ -118,7 +118,6 @@ $('documnet').ready(function () {
             }
         }
         else {
-            console.log($('#dateReturn').val());
 
             var jsonstudentID = {
                 studentid: $('#studentid').val(),
@@ -130,7 +129,7 @@ $('documnet').ready(function () {
                 data: jsonstudentID,
                 datatype: 'json',
                 success: function (data) {
-                       console.log(data);
+                       $studentBorrowBook.empty();
                         data.forEach(function (item, index, array) {
                             var $studentID=$('<td>').html($('#studentid').val());
                             var $userName=$('<td>').html(item.userName);
@@ -146,7 +145,6 @@ $('documnet').ready(function () {
             });
         }
     });
-
 
     /*读者注销*/
     $('#stuIdDele').click(function (e) {
