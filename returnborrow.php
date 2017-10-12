@@ -5,6 +5,7 @@
  * Date: 17-10-11
  * Time: 上午10:22
  */
+include "ChromePhp.php";
 header("Content-type:application/json;charset=UTF-8");
 $link=mysqli_connect('127.0.0.1','root','root','library','3306');
 if($link){
@@ -17,7 +18,19 @@ if($link){
         $sql="INSERT INTO borrow_inf(userID,bookID,borr_date)VALUES('{$studentIdBorrow}','{$bookIdBorrow}','{$dateBorrow}') ";
         mysqli_query($link,'SET NameS utf8');
         mysqli_query($link,$sql);
-        echo json_encode(array('success'=>'yes'));
+        $senddata = array();
+        $sql2="select userID,bookID,borr_date from borrow_inf WHERE userID='$studentIdBorrow' order by userID  limit 1";
+        $query=mysqli_query($link,$sql2);
+        ChromePhp::log($query);
+
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($senddata, array(
+                'userID' => $row['userID'],
+                'bookID' => $row['bookID'],
+                'borr_date' => $row['borr_date']
+            ));
+        }
+        echo json_encode($senddata);
     }
 
     if($_POST['isbo']==false)

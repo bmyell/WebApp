@@ -15,12 +15,10 @@ if($link){
 
 	$sql="UPDATE `book_inf` SET bookWR='{$bookwr}',booktype='{$booktype}',bookPress='{$bookpress}',bookNum='{$booknum}', bookName= '{$bookname}' WHERE bookID='{$bookid}'";
 
-	ChromePhp::log($sql);
 
 	mysqli_query($link,'SET NAMES utf8');
     mysqli_query($link,$sql);
 
-    ChromePhp::log(mysqli_query($link,$sql));
 
    echo json_encode(array('修改信息'=>'修改成功'));
 }

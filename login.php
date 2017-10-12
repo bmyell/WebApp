@@ -1,44 +1,80 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: liu
- * Date: 17-10-6
- * Time: 下午10:39
- */
-
 // 创建连接
-$dbhost = 'localhost:3306';  // mysql服务器主机地址
+include "ChromePhp.php";
+header("Content-type:application/json;charset=UTF-8");
+include "ChromePhp.php";
+$dbhost = '127.0.0.1';  // mysql服务器主机地址
 $dbuser = 'root';            // mysql用户名
 $dbpass = 'root';          // mysql用户名密码
-
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
 if(! $conn )
 {
     die('连接失败: ' . mysqli_error($conn));
 }
-echo '连接成功<br />';
-
-
-/*保存错误信息*/
-$error=array();
-//当有表单提交时
-if(!empty($_POST))
-{
+ else {
     //接收用户输入的信息
-    $schoolid=isset($_POST['schoolid']) ? trim($_POST['schoolid']):'';
-    $password=isset($_POST['password']) ? trim($_POST['password']):'';
+     if($_POST['option']=='student')
+     {
+         $username=isset($_POST['username']) ? trim($_POST['username']):'';
+         $password=isset($_POST['password']) ? trim($_POST['password']):'';
+         $sql = "select * from user_inf where userName = '{$username}'";
 
-    $sql = "select 'school_id','password' from 'user' where 'school_id'=$schoolid";
-    if($result=mysqli_query($sql))
-    {
-        //处理结果集
-        $row = mysqli_fetch_assoc($result);
+         mysqli_select_db($conn,"library");
+         mysqli_query($conn,'SET NAMES utf8');
+         $result=mysqli_query($conn,$sql);
 
-        if($password == $row['password'])
-        {
-          die("欢迎登录");
-          require "../index.html";
-        }
-    }
-}
+         if($row = mysqli_fetch_array($result))
+         {
+             if($password == $row['userPD'])
+             {
 
+                 //跳转，或者在
+                 echo json_encode(array('success'=>'yes'));
+
+                // header("Location: $url");
+             }
+             else
+             {
+
+                 echo json_encode(array('success'=>'no'));
+             }
+         }
+         else {
+
+             echo json_encode(array('success'=>'no'));
+         }
+     }
+
+     if($_POST['option']=='teacher')
+     {
+         ChromePhp::log("姥姥啊");
+         $username=isset($_POST['username']) ? trim($_POST['username']):'';
+         $password=isset($_POST['password']) ? trim($_POST['password']):'';
+         $sql = "select * from manager_inf where M_name ='{$username}' ";
+         ChromePhp::log($sql);
+         mysqli_select_db($conn,"library");
+         mysqli_query($conn,'SET NAMES utf8');
+         $result=mysqli_query($conn,$sql);
+         ChromePhp::log($result);
+         if($row = mysqli_fetch_array($result))
+         {
+             if($password == $row['managePD'])
+             {
+                 echo json_encode(array('success'=>'yes'));
+             }
+             else
+             {
+                 echo json_encode(array('success'=>'yes'));
+             }
+         }
+         else {
+             echo json_encode(array('success'=>'no'));
+         }
+     }
+
+ }
+     
+     
+    
+ mysqli_close($conn);
+?>

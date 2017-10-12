@@ -7,7 +7,7 @@ $('documnet').ready(function () {
 
     var $booktableSearch =$('#booktableSearch tbody');
     //刷新页面
-    refreshBook();
+   // refreshBook();
     refreshtablesearch();
     $('#btnsubmit').click(function (e) {
         e.preventDefault();

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>合肥工业大学图书馆管理后台</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="bootstrap/css/base.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="bootstrap/img/favicon.ico">
+</head>
+<body style="min-height:800px; height: auto">
+<div class="container-fluid">
+    <!--头部-->
+    <nav class="navbar navbar-default row no-yj  navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#nav-list-left" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">欢迎使用管理系统！</a>
+            </div>
+
+            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i
+                            class="glyphicon glyphicon-bell"><i class="label label-warning label-nav">66</i></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">哈哈哈</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i
+                            class="glyphicon glyphicon-envelope"><i class="label label-success label-nav">6</i></i></a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">哈哈哈</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="height: 50px">
+                        <img class="img-circle pull-left img-responsive nav-user-img"
+                             src="bootstrap/img/logo.jpg"/><span class="pull-left nav-username">管理员</span></a>
+
+                        <ul class="dropdown-menu dropdown-menu-right clearfix" style="padding-top: 0px">
+                            <li class="user-li-head"><span>
+                                    <img class="img-circle nav-user-img-xiala center-block"
+                                         src="bootstrap/img/logo.jpg"/></span>
+                                <p></p>
+                                <p class="text-center"><span>技术部 - 打酱油的</span></p>
+                                <p class="text-center"><span>不知</span></p>
+                                <p class="text-center">
+                                    <small><span>2014-09-01入学</span></small>
+                                </p>
+                            </li>
+                            <li style="padding: 10px 20px; padding-bottom: 20px">
+
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat no-yj">资料</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat no-yj">注销</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--主体部分-->
+    <div class="row" style="margin-top:70px">
+        <div class="  nav-left col-md-2 no-padding" id="nav-list-left">
+            <div class="user-panel">
+                <img src="bootstrap/img/logo.jpg" class="img-circle center-block"/>
+            </div>
+            <!--这个是侧边栏-->
+            <div class="nav-list">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li>
+                        <a href="#self_info">查看个人信息</a>
+                    </li> <!--书籍管理-->
+                    <li>
+                        <a href="#borrow_history">借阅历史</a>
+                    </li> <!--学生管理-->
+                    <li>
+                        <a href="./index.html">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--右边的内容-->
+        <div class="main-right  col-md-10 col-md-offset-2">
+            <div class="container" id="self_info">
+                <div class="row">
+                    <div class="col-md-11 ">    <!--显示结果-->
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                个人信息
+                            </div>
+                            <div class="panel-body">
+                                <table class="table" id="self_info_table">
+                                    <thead>
+                                    <tr>
+                                        <th>学号</th>
+                                        <th>姓名</th>
+                                        <th>密码</th>
+                                        <th>年级</th>
+                                        <th>班级</th>
+                                        <th>邮箱</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span class="text-center">借阅历史</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-stripted" id="stu_bro_info">
+                                    <thead>
+                                          <tr>
+                                        <th>书id</th>
+                                        <th>书名</th>
+                                        <th>类型</th>
+                                        <th>作者</th>
+                                        <th>出版社</th>
+                                        <th>借阅日期</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="4"><p>好好学习！</p></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--学生注销-->
+           </div>
+        </div>
+    </div>
+
+
+
+<!-- model update -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel2">修改个人信息</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="uname">用户名</label>
+                            <input type="text" class="form-control" id="uname" placeholder="昵称">
+                        </div>
+                        <div class="form-group">
+                            <label for="upassword">密码</label>
+                            <input type="text" class="form-control" id="upassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="uclass">班级</label>
+                            <input type="text" class="form-control"  id="uclass">
+                        </div>
+                        <div class="form-group">
+                            <label for="ugrade">年级</label>
+                            <input type="text" class="form-control" id="ugrade" placeholder="输入年级"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="uemail">邮箱</label>
+                            <input type="text" class="form-control" id="uemail" placeholder="输入邮箱"/>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    取消
+                </button>
+                <button type="button" class="btn btn-primary" id="confirmUpdate">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--基本脚本-->
+<script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="user.js"></script>
+</body>
+</html>

@@ -1,6 +1,9 @@
 //为了管理用户和借书，弄的表格
 $('documnet').ready(function () {
     /*对借阅进行登记*/
+    var $borrow_table=$('#borrow_table table');
+        $borrow_table.append('<td>');
+
     $('#submitBorrow').click(function (e) {
         e.preventDefault();
         //输入判断
@@ -22,16 +25,12 @@ $('documnet').ready(function () {
             }
         }
         else {
-            console.log($('#dateBorrow').val());
-
             var jsonBookBorrow = {
                 studentIdBorrow: $('#studentIdBorrow').val(),
                 bookIdBorrow: $('#bookIdBorrow').val(),
                 dateBorrow: $('#dateBorrow').val(),
                 isbo: 1
             };
-
-            console.log(jsonBookBorrow);
             //提交添加的新闻
             $.ajax({
                 url: 'returnborrow.php',
@@ -39,10 +38,20 @@ $('documnet').ready(function () {
                 data: jsonBookBorrow,
                 datatype: 'json',
                 success: function (data) {
-                    console.log(data);
-                    //刷新页面
-                    console.log(data.dateBorrow.val());
-                    showinsertTable();
+                    console.log(data[0]);
+                    console.log(data[0].bookID);
+                    var $userID=$('<td>').html(data[0].userID);
+                    var $bookID = $('<td>').html(data[0].bookID);
+                    var $borr_date= $('<td>').html(data[0].borr_date);
+                    var $booktd = $('<td>');
+                    var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('成功');
+                    $booktd.append($bookbtn);
+                    var $tRow = $('<tr>');
+                    $tRow.append($userID,$bookID,$borr_date,$bookbtn);
+                    console.log($userID);
+                    $borrow_table.append($tRow);
+                    console.log($borrow_table);
+
                 }
             });
         }
@@ -96,7 +105,7 @@ $('documnet').ready(function () {
     });
 
     /*读者借阅查询*/
-    var    $studentBorrowBook =  $('#studentBorrowBook').find('tbody');
+    var $studentBorrowBook =  $('#studentBorrowBook').find('tbody');
     $('#student_borrow_info').click(function (e) {
         e.preventDefault();
         //输入判断
@@ -128,7 +137,6 @@ $('documnet').ready(function () {
                             var $bookID = $('<td>').html(item.bookID);
                             var $bookName = $('<td>').html(item.bookName);
                             var $booktype = $('<td>').html(item.booktype);
-                            var $booktd = $('<td>');
                             var $tRow = $('<tr>');
                             $tRow.append($studentID,$userName,$bookID, $bookName, $booktype);
                             $studentBorrowBook.append($tRow);

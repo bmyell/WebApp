@@ -5,47 +5,54 @@
     <title>欢迎注册</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+    <link rel="shortcut icon" href="bootstrap/img/favicon.ico">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="form-group">
-                    <label for="schoolid">学号</label>
-                    <input  type="text"  id="schoolid" name="schoolid" class="form-control" required/>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h2 align="center">用户注册</h2></div>
                 </div>
-                <div class="form-group">
-                    <label for="username">用户名</label>
-                    <input type="text" id="username" name="username" class="form-control" required/>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="schoolid">学号</label>
+                            <input  type="text"  id="schoolid" name="schoolid" class="form-control" placeholder="9-digital" 　class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="随便起个名字" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="text" id="email" name="email" class="form-control" placeholder="请输入邮箱" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">年级</label>
+                            <input type="number" id="grade" name="grade" class="form-control" placeholder="请输入年级" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="class">班级</label>
+                            <input type="text" id="class" name="class" class="form-control"  placeholder="请输入班级" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" id="password" name="password" class="form-control" required/>
+                        </div>
+                        <div>
+                            <input type="submit" class="btn-primary form-control" id="loginup"/>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">邮箱</label>
-                    <input type="text" id="email" name="email" class="form-control" required/>
-                </div>
-                <div class="form-group">
-                    <label for="grade">年级</label>
-                    <input type="number" id="grade" name="grade" class="form-control" required/>
-                </div>
-                <div class="form-group">
-                    <label for="password">密码</label>
-                    <input type="password" id="password" name="password" class="form-control" required/>
-                </div>
-                <div class="form-group">
-                    <label for="password">再次输入</label>
-                    <input type="password" required/>
-                </div>
-                <form method="post" >
-                    <input type="text" required  placeholder="hello"/>
-                    <input type="submit" class="btn-primary"/>
-                </form>
-            </div>
         </div>
     </div>
+    </div>
 
-
-
-    <script rel="script" src="bootstrap/js/jquery-3.2.1.min.js"></script>
-    <script rel="script" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="login_in_up.js"></script>
 </body>
+
 </html>
