@@ -21,7 +21,7 @@ if($link){
         $senddata = array();
         $sql2="select userID,bookID,borr_date from borrow_inf WHERE userID='$studentIdBorrow' order by userID  limit 1";
         $query=mysqli_query($link,$sql2);
-        ChromePhp::log($query);
+
 
         while ($row = mysqli_fetch_assoc($query)) {
             array_push($senddata, array(
@@ -42,7 +42,22 @@ if($link){
         $sql="INSERT INTO ret_inf(userID,bookID,ret_date)VALUES('{$studentIdReturn}','{$bookIdReturn}','{$dateReturn}') ";
         mysqli_query($link,'SET NameS utf8');
         mysqli_query($link,$sql);
-        echo json_encode(array('success'=>'yes'));
+
+        $senddata = array();
+        $sql2="select userID,bookID,ret_date from ret_inf WHERE userID='{$studentIdReturn}' order by userID  limit 1";
+        $query=mysqli_query($link,$sql2);
+
+
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($senddata, array(
+                'userID' => $row['userID'],
+                'bookID' => $row['bookID'],
+                'ret_date' => $row['ret_date']
+            ));
+        }
+        echo json_encode($senddata);
+
+
     }
 
 }else{

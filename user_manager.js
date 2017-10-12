@@ -1,9 +1,10 @@
 //为了管理用户和借书，弄的表格
 $('documnet').ready(function () {
     /*对借阅进行登记*/
-    var $borrow_table=$('#borrow_table table');
-        $borrow_table.append('<td>');
-　　/*  对借书进行登记　TODO 需要测试*/
+    var $borrow_table=$('#borrow_table tbody');
+    var $return_table=$('#return_table tbody');
+
+　　/*  对借书进行登记　TODO 测试成功，table->tbody*/
     $('#submitBorrow').click(function (e) {
         e.preventDefault();
         //输入判断
@@ -31,32 +32,26 @@ $('documnet').ready(function () {
                 dateBorrow: $('#dateBorrow').val(),
                 isbo: 1
             };
-            //提交添加的新闻
             $.ajax({
                 url: 'returnborrow.php',
                 type: 'post',
                 data: jsonBookBorrow,
                 datatype: 'json',
                 success: function (data) {
-                    console.log(data[0]);
-                    console.log(data[0].bookID);
                     var $userID=$('<td>').html(data[0].userID);
                     var $bookID = $('<td>').html(data[0].bookID);
                     var $borr_date= $('<td>').html(data[0].borr_date);
                     var $booktd = $('<td>');
-                    var $bookbtn = $('<button>').addClass('btn btn-primary btn-xs').html('成功');
+                    var $bookbtn = $('<button>').addClass('btn btn-success btn-xs').html('成功');
                     $booktd.append($bookbtn);
                     var $tRow = $('<tr>');
                     $tRow.append($userID,$bookID,$borr_date,$bookbtn);
-                    console.log($userID);
                     $borrow_table.append($tRow);
-                    console.log($borrow_table);
-
                 }
             });
         }
     });
-    /*对归还进行登记　TODO 需要测试*/
+    /*对归还进行登记　TODO 测试成功*/
     $('#submitReturn').click(function (e) {
         console.log("归还");
         e.preventDefault();
@@ -96,9 +91,16 @@ $('documnet').ready(function () {
                 data: jsonBookReturn,
                 datatype: 'json',
                 success: function (data) {
-                    console.log(data);
-                    //刷新页面
-                    showinsertTable();
+                    var $userID=$('<td>').html(data[0].userID);
+                    var $bookID = $('<td>').html(data[0].bookID);
+                    var $ret_date= $('<td>').html(data[0].ret_date);
+                    var $booktd = $('<td>');
+                    var $bookbtn = $('<button>').addClass('btn btn-success btn-xs').html('成功');
+                    $booktd.append($bookbtn);
+                    var $tRow = $('<tr>');
+                    $tRow.append($userID,$bookID,$ret_date,$bookbtn);
+                    $return_table.append($tRow);
+
                 }
             });
         }
@@ -169,7 +171,7 @@ $('documnet').ready(function () {
                 data: jsonstuDele,
                 datatype: 'json',
                 success: function (data) {
-                            console.log(data);
+                           alert("成功注销");
                     }
             });
         }

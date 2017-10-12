@@ -100,7 +100,7 @@
                         </ul>
                     </li> <!--借阅与归还-->
                     <li>
-                        <a href="#">退出</a>
+                        <a href="./index.html">退出</a>
                     </li>
                 </ul>
             </div>
@@ -333,7 +333,7 @@
                                         <label for="dateBorrow">日期</label>
                                         <input type="date" class="form-control" id="dateBorrow" placeholder="9－digital">
                                     </div>
-                                    <button type="button" class="btn-success" id="submitBorrow">提交</button>
+                                    <button type="button" class="btn-success form-control" id="submitBorrow">提交</button>
                                 </form>
                             </div>
                         </div>
@@ -373,17 +373,17 @@
                                 <form>
                                     <div class="form-group">
                                         <label for="studentIdReturn">输入学生的学号</label>
-                                        <input type="text" id="studentIdReturn" placeholder="9－digital">
+                                        <input type="text" class="form-control" id="studentIdReturn" placeholder="9－digital">
                                     </div>
                                     <div class="form-group">
                                         <label for="bookIdReturn">输入书籍的id</label>
-                                        <input type="text" id="bookIdReturn" placeholder="8-digital">
+                                        <input type="text" id="bookIdReturn"  class="form-control" placeholder="8-digital">
                                     </div>
                                     <div class="form-group">
                                         <label for="dateReturn">日期</label>
-                                        <input type="date" id="dateReturn">
+                                        <input type="date"  class="form-control" id="dateReturn">
                                     </div>
-                                    <button type="button" class="btn-success" id="submitReturn">提交</button>
+                                    <button type="button" class="btn-success form-control" id="submitReturn">提交</button>
                                 </form>
                             </div>
                         </div>
@@ -394,8 +394,7 @@
                             <div class="panel-heading">操作结果
                             </div>
                             <div class="panel-body">
-
-                                <table class="table table-stripted">
+                                <table class="table table-stripted" id="return_table">
                                     <!--图书借阅成功-->
                                     <thead>
                                     <tr>
@@ -406,18 +405,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>2014217133</td>
-                                        <td>刘之类</td>
-                                        <td>1111</td>
-                                        <td>高数</td>
-                                    </tr>
                                     </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <td colspan="4"><p>Are you OK?</p></td>
-                                    </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
