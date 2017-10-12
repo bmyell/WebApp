@@ -160,10 +160,7 @@ $('documnet').ready(function () {
         }
 
         else {
-            /*先定义一个jsonbook数据结构*/
-
                 console.log("我是学生");
-                // 这里修改跳转到学生登录的界面
                 var loginup = {
                     username: $('#username').val(),
                     password: $('#password').val(),
